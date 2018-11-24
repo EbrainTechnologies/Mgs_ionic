@@ -1,0 +1,25 @@
+[common] [dark-green-button] {
+    background-color:  #003034;
+}
+
+[common] [rounded-input-with-green-border] {
+    border: 1px solid #003034;
+    border-radius: 20px;
+}
+
+[common] input[rounded-input-with-green-border] {
+    border: 0px;
+    border-radius: 0px;
+}
+
+[common] ion-item[no-border-bottom] .item-inner {
+    border-bottom: 0px;
+}
+
+[common] ion-input.disabled {
+    background: #f2f5f2;
+}  
+
+[common] [input-padding] {    
+    padding: 0px 15px;
+}

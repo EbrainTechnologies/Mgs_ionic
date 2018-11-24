@@ -1,0 +1,247 @@
+
+[detail] .detail-heading-image img {
+    width: 100%;
+}
+[detail] .detail-body {
+    padding: 16px;
+}
+
+[detail] .detail-heading {
+    color:color($colors, green-text);
+    margin-bottom:5px; 
+    display:block;
+}
+
+[detail] .detail-hightlight.yellow {
+    color:#ffbc00;
+}
+
+[detail] .detail-hightlight.red {
+    color:#f53d3d;
+}
+
+[detail] .detail-hightlight.blue {
+    color: #488aff;
+}
+
+[detail] .detail-left {
+    width: 45%;
+    margin-top: 6px;
+    color: #333;
+    float: left;
+}
+
+[detail] .detail-right {
+    width: 52%;
+    display: inline-block;
+    margin-top: 6px;
+    color: #333;
+    white-space: normal;
+}
+
+[detail] .label {
+    font-weight: 500;
+    font-size: 14px;
+    color: #000000!important;
+    padding-bottom: 10px;
+}
+
+[detail] ion-input,
+[detail] ion-select,
+[detail] ion-datetime,
+[detail] ion-textarea {
+    border: 1px solid #000000;
+    padding: 12px!important;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+[detail] ion-input input {
+    margin: 0px!important;
+}
+
+[detail] ion-input[disabled],
+[detail] ion-select[disabled] {
+    background-color: #eceff1;
+    color: #000000;
+}
+
+[detail] ion-input[disabled] input {
+    opacity: 1!important;
+}
+
+[detail] .note {
+    padding: 0px 16px;
+}
+
+[detail] .note .label {
+    padding-bottom: 0px;
+}
+
+[detail] .note span {
+    white-space: normal;
+    font-size: 12px;
+    font-weight: normal;
+    white-space: normal;
+}
+
+[detail] ion-footer {
+    position: fixed;
+    color: #ffffff;
+    text-align: center;
+    cursor: pointer;
+}
+
+[detail] .scroll-content {
+    margin-bottom: 56px;
+    background: #eff0f2;
+    overflow-y: auto;
+}
+
+[detail] ion-fab {
+    bottom: 56px;
+}
+
+[detail] ion-fab button {
+    background-color: #006a68!important;
+    color: #ffffff;
+}
+
+
+[detail] .selectable {
+    cursor: pointer;
+}
+
+[detail] ion-list-header .label {
+    color: #000000;
+    text-align: left;
+}
+
+[detail] .red {
+    color: red;
+}
+
+[detail] ion-item,
+[detail] .item-inner {
+    border-bottom: 0px!important;
+    box-shadow: none!important;
+    -webkit-box-shadow: none!important;
+    box-shadow: none!important;
+}
+
+[detail] .list-md .item-input:last-child {
+    border-bottom: 0px;
+}
+
+[detail] .comment {
+    white-space: normal!important;
+}
+
+[detail] ion-slides {
+    height: inherit;
+    min-height: 100%;
+}
+
+
+[detail-tab] {
+    margin-top: .3rem;
+}
+
+[detail-tab] [detail-tab-item] {
+    display: inline-block;
+    width: 20%;
+    line-height: 39px;
+    height: 39px;
+    text-align: center;
+    cursor: pointer;
+}
+
+[detail-tab] [detail-tab-item].disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+[detail-tab] [detail-tab-item].active [detail-tab-item-main]{
+    background-color: #003034;
+    margin-right: 20px;
+    color: #ffffff;
+}
+
+.header-ios [detail-tab] [detail-tab-item].active [detail-tab-item-main]{
+    background-color: #f8f8f8;
+    color: #000000;
+}
+
+[detail-tab] [detail-tab-item] [detail-tab-item-after] {
+    float: right;
+    width: 0;
+	height: 0;
+}
+
+[detail-tab] [detail-tab-item].active [detail-tab-item-after] {
+	border-top: 39px solid #003034;
+    border-right: 20px solid transparent;
+}
+
+.header-ios [detail-tab] [detail-tab-item].active [detail-tab-item-after] {
+    border-top: 39px solid #f8f8f8;
+}
+
+[detail-tab] [detail-tab-item].next-active [detail-tab-item-after] {
+	border-bottom: 39px solid #003034;
+    border-left: 20px solid transparent;
+}
+
+.header-ios [detail-tab] [detail-tab-item].next-active [detail-tab-item-after] {
+    border-bottom: 39px solid #f8f8f8;
+}
+
+[detail-tab] [detail-tab-item].last.active [detail-tab-item-after] {
+    border-right: 20px solid #003034;
+}
+
+.header-ios [detail-tab] [detail-tab-item].last.active [detail-tab-item-after] {
+    border-right: 20px solid #f8f8f8;
+}
+
+[detail] ion-slide {
+    background-color: #fff;
+}
+[detail] .swiper-slide {
+    display: block;
+}
+
+[detail] ion-toolbar.message {
+    text-align: left;
+}
+
+[detail] .highlight {
+    color: #003034 !important;
+    font-weight: 600;
+}
+
+[detail] .green {
+    color: #003034!important;
+}
+
+[detail] .green-bg {
+    background-color: #003034!important;
+}
+
+[detail] .orange {
+    color: #FF7D00!important;
+}
+
+[detail] .orange-bg {
+    background-color: #FF7D00!important;
+}
+
+
+[detail] .grey {
+    color: #818181!important;
+}
+
+[detail] .grey-bg {
+    background-color: #818181!important;
+}

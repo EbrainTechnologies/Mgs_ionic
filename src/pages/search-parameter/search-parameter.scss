@@ -1,0 +1,81 @@
+@import '../detail.scss';
+
+page-search-parameter {
+
+    [detail] .scroll-content {
+        background-color: #ffffff;
+    }
+
+    .headline{
+        padding:7px 15px; background:#003034; color:#fff;
+    }
+    .item-md{
+        padding-left:0px;
+    }
+    .grid{
+        padding:0px;
+    }
+    .grid p{
+        margin-bottom:0px;
+    }
+    .club_lable{
+        white-space:normal;
+    }
+    .tab_menu{
+        border-radius:25px;
+    }
+    .tab_menu .toolbar-background-md{
+        background:#eaf8f8 !important;
+    }
+    .segment-md .segment-button.activated, 
+    .segment-md .segment-button.segment-activated{
+        background:#02504c; color:#fff; border-radius:25px;
+    }
+    .toolbar-md.tab_menu{
+        padding:0px;  min-height:36px;
+    }
+    .segment-md .segment-button{
+        border-bottom-width:0px; 
+        color:#02504c; 
+        text-transform:none;
+        line-height: 15px;
+        padding-top: 5px;
+    }
+    .segment-md .segment-button .icon {
+        font-size: 12px;
+        line-height: 0px;
+    }
+    .inputtext{
+        border: 1px solid #003034; border-radius: 50px;
+    }
+    .paratag{
+        font-weight: bold;
+    }
+    .save-btn{
+        margin-top:15px;
+    }
+    .range-md-secondary .range-bar-active, .range-md-secondary .range-knob, .range-md-secondary
+    .range-pin, .range-md-secondary .range-pin::before, .toggle-md.toggle-checked .toggle-inner{
+        background:#003034;
+    }
+    .toggle-md.toggle-checked .toggle-icon{
+        background:#27484a;
+    }
+    .location-label {
+        min-height: 31px;
+    }
+    .location-label .item-inner {
+        border-bottom: 0px;
+    }
+    .location-input ion-label {
+        border: 1px solid #000000;
+        padding: 12px!important;
+        border-radius: 20px;
+        margin: 0px;
+    }    
+    .location-input ion-label,
+    .location-input input{
+        margin: 0px;
+    }
+
+}

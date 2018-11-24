@@ -1,0 +1,54 @@
+@import '../detail.scss';
+session-detail-page {
+
+    .session-heading {
+        font-size: 14px;
+    }
+
+    .session-heading img {
+        width: 40px;
+        height: 40px;
+        display: inline-block;
+    }
+
+    ion-avatar {
+        margin: 0px!important;
+    }
+
+    .regitered-players ion-avatar {
+        margin-right: 8px!important;
+    }
+
+    .session-heading-avatar {
+        font-size: 40px;
+    }
+
+    .session-heading-left {
+        float: left;
+        max-width: 20%;
+        text-align: center;
+        font-weight: normal!important;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .session-heading-right {
+        float: right;
+        max-width: 30%;
+        text-align: center;
+    }
+
+    .session-heading-main {
+        margin: 0px 22% 0px 22%;
+        font-weight: normal!important;
+        white-space: normal;
+    }
+
+    .session-heading ion-badge {
+        white-space: normal;
+        font-size: smaller;
+        font-weight: 100;
+        padding: 6px 8px;
+        width: 75px;
+    }
+}

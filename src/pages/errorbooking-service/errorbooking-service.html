@@ -1,0 +1,25 @@
+<!--
+  Generated template for the ErrorbookingServicePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>
+    	<span class="back" (click)="back(NearByPlayerPage)"><ion-icon name="arrow-back"></ion-icon></span>
+    Booking Service</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+	<span class="warning_icon"><ion-icon ios="ios-warning" md="md-warning"></ion-icon></span>
+	<p>Thank you for trying our venue booking service. Currently we don't have any facillity contracted in this location.<br/> <br/>Please look out for an update from as via email as the facility become available in this location.</p>
+
+	<div class="booking_btn" padding>
+    	<button ion-button block round class="green_btn" (click)="playerinvite(PlayerInviteFormPage)">Skip without booking</button>
+    </div>
+</ion-content>

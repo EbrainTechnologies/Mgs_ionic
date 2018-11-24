@@ -1,0 +1,40 @@
+<ion-content padding class="login layer">
+  <img  class="logo" src="assets/imgs/logo2.png" >
+  <div class="forms">
+      <form #loginForm="ngForm" (ngSubmit)="login()" autocomplete="off">
+          <ion-grid>
+          <ion-row>
+            <ion-col>
+              <ion-list padding>
+                
+                <ion-item class="input-background username">
+                  <ion-label stacked>Email or Username</ion-label>
+                  <ion-input name="userName" id="loginField" type="text" class="inputcolor" required [(ngModel)]="userData.userName" #email clearInput ></ion-input>
+                </ion-item>
+                
+                <ion-item class="input-background">
+                  <ion-label stacked class="mt20">Password</ion-label>
+                  <ion-input name="password userName" id="passwordField" type="password" class="inputcolor" required [(ngModel)]="userData.password" clearInput></ion-input>
+                </ion-item>
+              </ion-list>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+          <ion-col>
+      
+          </ion-col>
+            <ion-col col-8>
+              <div *ngIf="error" class="alert alert-danger">{{error}}</div>
+              <button ion-button color="light" round type="submit" class="login-btn" [disabled]="!loginForm.form.valid" >Login
+              </button>
+              <div class="forgot_psw"><a href="javascript:void(0)" (click)="forgetPassword()" >Forgot Your Password?</a></div>
+            </ion-col>
+            <ion-col>
+      
+            </ion-col>
+          </ion-row>
+          </ion-grid>
+        </form>
+        <p class="bottom_text">Don't have an account? <a href="javascript:void(0)" (click)="regPage()" >Register Here.</a></p>
+  </div>
+</ion-content>

@@ -1,0 +1,14 @@
+@import '../listing.scss';
+page-events {
+    [listing] ion-badge {
+        width: 118px;
+    }
+    
+  [listing] .item-right {
+      font-size: 12px;
+  }
+
+  [listing] .item-left {
+      font-size: 12px;
+  }
+}

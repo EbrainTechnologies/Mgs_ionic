@@ -1,0 +1,53 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title 	float-right class="editbtn" (click)="gotoedit(EditaboutmePage)">Edit</ion-title>
+    <ion-title>
+    	<span class="back" (click)="back(MyProfilePage)"><ion-icon name="arrow-back"></ion-icon></span>
+    	About Me</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+	<ion-item class="header_item">
+	    <ion-avatar item-end>
+	       <!-- <img src="assets/imgs/1.jpg"> -->
+	      <div class="mt-image">
+	      		<img src="{{this.startPoint}}upload/viewuserimage/{{this.userInfo.userid}}" > 
+	      </div>
+	      <div class="edit_btn" (click)="this.profilePic()">Change</div>
+	    </ion-avatar>
+	    <h2 class="text-color">{{ this.userInfo.firstName }}  {{ this.userInfo.lastName }}</h2>
+	    <p>{{ this.userFeature.displayName }}</p>
+  	</ion-item>
+  	
+	<ion-list>
+  		<div class="personal-detail">
+		    <b>Email</b>
+		    <p class="text-color"> {{ this.userInfo.emailid }} </p>
+		</div>
+	</ion-list>
+	<ion-list>
+  		<div class="personal-detail">
+		    <b>Phone</b>
+		    <p class="text-color"> {{this.userInfo.phoneNumber}} </p>
+		</div>
+	</ion-list>
+	<ion-list>
+  		<div class="personal-detail">
+		    <b>Birth Date</b>
+		    <p class="text-color"> {{ this.formatDate(this.userInfo.birthDate) }} </p>
+		</div>
+	</ion-list>
+    <ion-list>
+  		<div class="personal-detail">
+		    <b>Biography</b>
+		    <p class="text-color"> {{ this.userInfo.externalReference }} </p>
+		</div>
+	</ion-list>
+	
+
+</ion-content>

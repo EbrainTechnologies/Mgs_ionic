@@ -1,0 +1,126 @@
+<!--
+  Generated template for the MyProfilePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+  	<button ion-button menuToggle end>
+	      <ion-icon name="menu"></ion-icon>
+	    </button>
+    <ion-title>
+    	<span class="back" (click)="back(HomePage)"><ion-icon name="arrow-back"></ion-icon></span>
+    	My Profile</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+	<ion-item class="header_item">
+	    <ion-avatar item-end>
+	       <!-- <img src="assets/imgs/1.jpg"> -->
+	      <div class="mt-image">
+	      	<ion-icon ios="ios-contact" md="md-contact"></ion-icon>
+	      </div>
+	      <div class="edit_btn">Edit</div>
+	    </ion-avatar>
+	    
+	     <h2 class="text-color">Hello,</h2>
+	    <h2 class="text-color">{{ this.userInfo.firstName }}  {{ this.userInfo.lastName}}</h2>
+	    <p class="text-color">View and edit your profile</p>
+	</ion-item>
+
+	<div  padding class="profilebeginrow">
+		<ion-row>
+			<ion-col col-9 class="amavailable">
+				<p align-center>I'm Available</p>
+			</ion-col>
+			<ion-col col-3  class="toggleamavailable">
+				<ion-toggle [(ngModel)]="slidetoggle" text-right class="float-right text-right"></ion-toggle>
+			</ion-col>
+			
+					<!-- <ion-col col-9>
+							<p>Preferred Location</p>
+					</ion-col>
+					<ion-col col-3 text-end>
+							<span class="preferredlocation"> <ion-icon name="create"></ion-icon></span>
+							<span class="preferredlocation"> <ion-icon name="add-circle"></ion-icon></span>
+						</ion-col> -->
+						<!-- <ion-col col-12 *ngIf="slidetoggle">
+								<ion-select name="location" [(ngModel)]="location" class="locationselection" placeholder="Select Location">
+										<ion-option value="0">New York,USA</ion-option>
+										<ion-option value="1">Califorina</ion-option>
+										<ion-option value="2">Florida,US</ion-option>
+									</ion-select>
+						</ion-col> -->
+				
+		</ion-row>
+		<ion-row>
+			<ion-col col-9>
+				<p no-margin>Preferred Locations</p>
+			</ion-col>
+			<ion-col col-3 text-right>
+				<span>
+					<a href="#" title="Edit" class="text-color">
+					 <ion-icon ios="ios-create" md="md-create"></ion-icon>
+				</a>&nbsp;
+				<a href="#" title="Add"  class="text-color">
+					<ion-icon ios="ios-add-circle" md="md-add-circle"></ion-icon>
+				</a>
+				</span>
+			</ion-col>
+		</ion-row>
+		<ion-row>
+			<ion-col col-12>
+				<ion-select name="location" class="locationselection" placeholder="Select Location">
+					<ion-option value="0">New York,USA</ion-option>
+					<ion-option value="1">Califorina</ion-option>
+					<ion-option value="2">Florida,US</ion-option>
+				</ion-select>
+			</ion-col>
+		</ion-row>
+	</div>
+	
+	<ion-list (click)="aboutme(AboutMePage)">
+	  <ion-item>
+	    About Me
+	    <span clear item-end><ion-icon class="text-color" name="ios-person-outline"></ion-icon></span>
+	  </ion-item>
+	</ion-list>
+	<ion-list (click)="myaddress(MyAddressPage)">
+	  <ion-item>
+	   Address
+	    <span clear item-end> <ion-icon class="text-color" name="ios-home-outline"></ion-icon></span>
+	  </ion-item>
+	</ion-list>
+	<ion-list (click)="myranking(MyrankingPage)">
+			<ion-item>
+			 My Ranking
+				<span clear item-end> <ion-icon class="text-color" name="ios-star-outline"></ion-icon></span>
+			</ion-item>
+		</ion-list>
+	<!-- <ion-list (click)="playsports(SelectSportsPage)">
+	  <ion-item>
+	    Sports You Play
+	    <p>Add or modify your sports preference</p>
+	    <span clear item-end><ion-icon class="text-color" name="ios-star-outline"></ion-icon></span>
+	  </ion-item>
+	</ion-list> -->
+	<ion-list (click)="homeclub(HomeclubPage)">
+			<ion-item>
+			Home Club
+				<p>Add your home club</p>
+				<span clear item-end><ion-icon class="text-color" name="ios-flag-outline"></ion-icon></span>
+			</ion-item>star-outline md-contacts
+		</ion-list>
+		<ion-list  (click)="family(FamilyPage)">
+				<ion-item>
+			Family
+					<p>Add your family members</p>
+					<span clear item-end><ion-icon  class="text-color" name="ios-people-outline"></ion-icon></span>
+				</ion-item>
+			</ion-list>
+</ion-content>

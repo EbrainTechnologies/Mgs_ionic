@@ -1,0 +1,11 @@
+<div class="sport-image-container {{sport | lowercase}}">
+
+    <div class="player player{{i+1}}" *ngFor="let player of players; let i = index">
+        <ion-avatar item-start>
+            <img [src]="player.userProfileImage" *ngIf="player?.userProfileImage != null" (error)="player.userProfileImage = null"/>
+            <ion-icon class="player-avatar" ios="ios-contact" md="md-contact" *ngIf="player?.userProfileImage == null"></ion-icon>
+        </ion-avatar>
+        <div class="player-name">{{player.firstName?player.firstName:'Unassigned'}}</div>
+    </div>
+
+</div>

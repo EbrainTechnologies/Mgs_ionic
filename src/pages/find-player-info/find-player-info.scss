@@ -1,0 +1,52 @@
+@import '../listing.scss';
+
+page-find-player-info {
+    .city_name{
+        font-size:13px !important; margin-top:5px;
+    }
+
+    .item-md ion-avatar ion-img, .item-md ion-avatar img {
+        width:75px; height:75px;
+    }
+
+    .item-md h2{
+        font-weight:bold; font-size:2.8rem; white-space:normal;
+    }
+
+    h5{
+        font-size:17px !important;
+    }
+
+    .padding {
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-bottom: 20px;
+        background: white;
+    }
+
+    hr {
+        display: block;
+        color: gray;
+        border-width: 0.5px;
+    }
+
+    .heart_icon {
+        float: right;
+        margin-top: -25px;
+    }
+
+    .heart_icon a {
+        float: right;
+        font-size: 32px;
+        color: #006a68;
+    }
+
+    [detail] .scroll-content {
+        background-color: #ffffff;
+    }
+
+}
+
+
+
+

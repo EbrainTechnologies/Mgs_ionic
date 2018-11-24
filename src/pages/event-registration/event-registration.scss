@@ -1,0 +1,37 @@
+page-event-registration {
+
+.registration {
+    background: url("../assets/imgs/1.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+}
+.layer {
+    box-shadow: inset 0 0 0 1000px rgba(111, 52, 29, 0.61);
+    width: 100%;
+    height: 100%;
+}
+.input-background{
+  background: transparent;
+}
+.inputcolor ::placeholder {color: white !important}
+.inputcolor{color: white}
+.logo{
+  width: 50%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+}
+.forms{
+  margin-top:50px;
+}
+.inputcolor{
+  color: white !important;
+}
+.item-md{padding-left: 1px !important}
+.registration-btn{text-align: center;width: 100%;}
+
+
+
+}

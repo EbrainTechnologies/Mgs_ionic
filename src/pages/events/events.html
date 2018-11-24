@@ -1,0 +1,73 @@
+<ion-header>
+
+	<ion-navbar>
+		<button ion-button menuToggle end>
+			<ion-icon name="menu"></ion-icon>
+		</button>
+		<ion-title>Upcoming Events</ion-title>
+	</ion-navbar>
+
+</ion-header>
+
+
+<ion-content listing>
+	<ion-list>
+		<ion-card *ngFor="let event of upcomingEvents">
+			<ion-item (click)="navigateToViewDetail(event)">
+
+				<b class="item-heading">{{event.eventName}}</b>
+				<p>
+					<span class="item-left float-left">
+                      <ion-icon name="calendar"></ion-icon>
+                      {{appContext.getFormattedDate(event.startDate)}}
+                      <br>
+                      <ion-icon name="pin"></ion-icon>
+                      {{ event?.venueName != null && session?.venueName.toLowerCase() != 'unknown'? event.venueName + ', ': '' }}
+                      {{ event?.address?.name != null?event?.address?.name + ', ': ''}}
+                      {{ event?.address?.city}}, {{event?.address?.statecode}}
+                    </span>   
+					<span class="item-right">
+					{{event.eventType}}
+				</span>
+
+				</p>
+				<p class="registration-status">
+					<span class="item-left">
+					<span *ngIf="event.registrationStatus != null">
+						<ion-badge *ngIf="event.registrationStatus == 'ACTIVE'" 
+							color="secondary">
+							Registered
+						</ion-badge>
+						<ion-badge *ngIf="event.registrationStatus == 'CANCELLED'" 
+							color="light">
+							Registration Cancelled
+						</ion-badge>
+						<ion-badge *ngIf="event.registrationStatus == 'REJECTED'" 
+							color="danger">
+							Registration Rejected
+						</ion-badge>
+					</span>
+					<span *ngIf="event.registrationStatus == null">
+						<ion-badge *ngIf="currentDate > event.registrationOpenAt && currentDate < event.registrationClosAt"
+							color="primary">
+							Registration Open
+						</ion-badge>
+						<ion-badge *ngIf="currentDate >= event.registrationClosAt "
+							color="danger">
+							Registration Closed
+						</ion-badge>
+						<ion-badge *ngIf="currentDate <= event.registrationOpenAt"
+							color="danger">
+							Coming Soon
+						</ion-badge>
+					</span>
+					</span>
+					<span class="item-right">
+					<span *ngIf="!event.isFree">Entry fee: {{ event.entryFee | number }} {{event.currencyCode}}</span>
+					<span *ngIf="event.isFree">Free</span>
+					</span>
+				</p>
+			</ion-item>
+		</ion-card>
+	</ion-list>
+</ion-content>

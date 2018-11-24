@@ -1,0 +1,13 @@
+page-upcoming-service {
+.text-color{color:color($colors,green-text);}
+.up_service .bg_color{background:#000; margin:0; width:100%;}
+.up_service .bg_img{opacity:0.4;}
+.up_service .card-md{max-height:100% !important;}
+.up_service span{position:absolute; top:25%;  width:100%; text-align:center; left:0;}
+.up_service span img{width:110px; margin:0 auto; opacity:1 !important;}
+.up_service .card-title{top:55% !important; font-size:1.7em !important;}
+.game_date .card-md{background:#fff; }
+.game_date .card-content-md p ion-icon{font-size:40px;}
+.game_date .card-content-md p{text-align:center; padding:25px 0; font-size:13px;}
+.grid.game_date{padding:0 5px; margin-top:-30px;}
+}

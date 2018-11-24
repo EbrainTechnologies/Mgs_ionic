@@ -1,0 +1,114 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Notifications</ion-title>
+  </ion-navbar>
+
+  <ion-segment color="dark" [(ngModel)]="page" header-tab>
+    <ion-segment-button value="0" (click)="selectMatchInvite()">
+      MATCH INVITE ({{matchInviteCount}})
+    </ion-segment-button>
+    <ion-segment-button value="1" (click)="selectPlayerInvite()" listing-tab>
+      PLAYER INVITE ({{playerInviteCount}})
+    </ion-segment-button>
+  </ion-segment>
+</ion-header>
+
+<ion-content listing class="match">
+  <ion-slides #slider (ionSlideWillChange)="moveButton($event)">
+    <ion-slide no-padding>
+      <ion-list>
+        <ion-card *ngFor="let session of matchNotifications">
+          <ion-item (click)="navigateToSessionDetail(session)">
+            <p class="three-colums">
+              <span class="item-left">
+                <span class="float-left avatar">
+                    <ion-avatar item-start>
+                        <img [src]="session.userProfileImage" *ngIf="session?.userProfileImage != null" (error)="session.userProfileImage = null"/>
+                        <ion-icon class="session-heading-avatar" ios="ios-contact" md="md-contact" *ngIf="session?.userProfileImage == null"></ion-icon>
+                    </ion-avatar>
+                </span>
+                <span class="float-left middle">
+                   <h2 class="highlight">{{session?.organizerId == appContext.userInfo?.user.userid?"Your Match":session?.organizerName}}</h2>
+                    <ion-icon name="calendar"></ion-icon>
+                        {{appContext.getFormattedDate(session.startDate)}}
+                        <br>
+                        <ion-icon name="clock"></ion-icon>
+                          {{appContext.getFormattedTime(session.startDate)}}
+                        <br>
+                    <ion-icon name="pin"></ion-icon>
+                        {{ session?.venueName != null && session?.venueName.toLowerCase() != 'unknown'? session.venueName + ', ': '' }}
+                        {{ session?.address?.name != null?session?.address?.name + ', ': ''}}
+                        {{ session?.address?.city}}, {{session?.address?.statecode}}
+                  </span>
+              </span>
+
+              <span class="item-right float-right">
+                    <div class="right-icon">
+                      <div>
+                          <img src="{{imageBaseUrl}}upload/viewsportpicture/{{session?.sportid}}">
+                      </div>
+                        <ion-badge color="primary">{{session.playTypeName}}</ion-badge>
+                    </div>
+              </span>
+            </p>
+          </ion-item>
+        </ion-card>
+      </ion-list>
+    </ion-slide>
+
+    <ion-slide no-padding class="player">
+      <ion-segment color="dark" [(ngModel)]="subPage" (ngModelChange)="loadNotifications()" listing-tab>
+        <ion-segment-button value="0" >
+          PENDING
+        </ion-segment-button>
+        <ion-segment-button value="1">
+          COMPLETED
+        </ion-segment-button>
+        <ion-segment-button value="2">
+          SENT
+        </ion-segment-button>
+      </ion-segment>
+      <ion-list>
+        <ion-card *ngFor="let session of playerNotificationsByStatus[subPage]">
+          <ion-item>
+            <p class="three-colums">
+              <span class="item-left">
+                <span class="float-left avatar">
+                  <ion-avatar item-start>
+                    <img [src]="session.userProfileImage" *ngIf="session.userProfileImage != null" (error)="session.userProfileImage = null"/>
+                    <ion-icon class="session-heading-avatar" ios="ios-contact" md="md-contact" *ngIf="session.userProfileImage == null"></ion-icon>
+                  </ion-avatar>
+                </span>
+                <span class="float-left middle">
+                    <h2 class="highlight" *ngIf="subPage == 2">{{session?.playerDisplayName}}</h2>
+                    <h2 class="highlight" *ngIf="subPage != 2">{{session?.organizerName}}</h2>
+                    <ion-icon name="calendar"></ion-icon>
+                    {{appContext.getFormattedDate(session.startDate)}}
+                    <br>
+                    <ion-icon name="clock"></ion-icon>
+                    <span class="orange">{{appContext.getFormattedTime(session.startDate)}}- {{appContext.getFormattedTime(session.endDate)}}</span>
+                    <span *ngIf="subPage == 0">
+                      <br>
+                      <button ion-button (click)="acceptPlayerInvite(session)" > Accept</button>&nbsp;
+                      <button ion-button class="orange-bg" (click)="rejectPlayerInvite(session)">Reject</button>
+                    </span>
+                </span>
+              </span>
+              <span class="item-right float-right">
+                <div class="right-icon">
+                  <div>
+                      <img src="{{imageBaseUrl}}upload/viewsportpicture/{{session?.sportid}}">
+                  </div>
+                  <span class="highlight">{{session?.inviteMessage}}</span>
+                </div>    
+              </span>
+            </p>
+          </ion-item>
+        </ion-card>
+      </ion-list>
+    </ion-slide>
+  </ion-slides>
+</ion-content>

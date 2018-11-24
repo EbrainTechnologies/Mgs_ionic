@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle end>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+  </ion-navbar>
+</ion-header>
+
+<ion-content no-padding>
+  <ion-item>
+    <ion-slides>
+      <ion-slide *ngFor="let item of photos">
+        <img src="{{item}}">
+      </ion-slide>
+    </ion-slides>
+    <span class="back" (click)="back()"><ion-icon name="ios-arrow-back-outline"></ion-icon></span>
+    <div padding>
+      <h2 class="text-color" text-center>{{ this.venueInfo.name }} <br> {{ this.venueInfo.venueSurface }} </h2>
+      <p text-center class="sub_title">{{ this.venueInfo.address.street1 }} {{ this.venueInfo.address.street1 }},<br/> {{ this.venueInfo.address.city }},{{
+        this.venueInfo.address.statecode }}
+      </p>
+      <p><span float-left> Lights <ion-icon *ngIf="this.venueInfo.hasLighting==1" ios="ios-checkbox" md="md-checkbox"></ion-icon>
+            <ion-icon *ngIf="this.venueInfo.hasLighting==0" ios="ios-square" md="md-square"></ion-icon> </span>
+        <span float-right> Indoor <ion-icon *ngIf="this.venueInfo.indoorAvailable==1" ios="ios-checkbox" md="md-checkbox"></ion-icon>
+            <ion-icon *ngIf="this.venueInfo.indoorAvailable==0" ios="ios-square" md="md-square"></ion-icon>
+          </span></p>
+      <br>
+      <span>
+          <b>Club Working Hours</b>
+          <p float-left>Opens At: {{appContext.getFormattedDateTime(this.venueInfo.openAt)}}</p>
+          <p float-right>Closes At: {{appContext.getFormattedDateTime(this.venueInfo.closeAt)}}</p>
+        </span>
+      <p text-center><img src="assets/imgs/googlemap.png" /></p>
+    </div>
+    <div>
+      <agm-map [latitude]="this.venueInfo.address.latitude" [longitude]="this.venueInfo.address.longitude">
+        <agm-marker [latitude]="this.venueInfo.address.latitude" [longitude]="this.venueInfo.address.longitude"></agm-marker>
+      </agm-map>
+    </div>
+  </ion-item>
+  <ion-footer *ngIf="loaded">
+    <span class="register-venue" (click)="register()">
+        <ion-title>Register</ion-title>
+      </span>
+  </ion-footer>
+</ion-content>

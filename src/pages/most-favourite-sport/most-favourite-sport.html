@@ -1,0 +1,29 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Sports Interested In</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+	<h1>Select the most favourite Sport <br/> you play to start with</h1>
+
+	
+	<ion-grid>
+	  <ion-row>
+	    <ion-col col-6 *ngFor="let item of this.sportLists">
+            <a href="javascript:void(0)" (click)="goToRanking(item)"  class="select_sports">
+			<img src="{{ this.startpoint }}upload/viewsportpicture/{{ item.sportId }}">
+				<span>{{ item.name }}</span>
+			</a> 
+	    </ion-col>
+	  </ion-row>
+	</ion-grid>
+
+	<div class="details">
+		<p>The sport you select as the most favorite sport will become the default sport in our app. However you can change the preference through profile screen later.</p>
+	</div>
+</ion-content>

@@ -1,0 +1,31 @@
+<!--
+  Generated template for the RegisterPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+
+
+<ion-content padding class="register layer">
+
+   	<ion-grid>
+	  <ion-row>
+	    <ion-col>
+	      <div class="logo" col-12 center><img src="assets/imgs/logo2.png" alt="logo"></div>
+	    </ion-col>
+	  </ion-row>
+
+	  <ion-row>
+	    <ion-col>
+	    	<div class="btn_section">
+	    		<button ion-button block round (click)="registration('Player')">REGISTER AS PLAYER</button>
+	    		<button ion-button block round (click)="registration('Coach')">REGISTER AS COACH</button>
+	    		<button ion-button block round (click)="registration('Parent')">REGISTER As PARENT</button>
+	    	</div>
+	    	<a center href="javascript:void(0)"  class="back_btn" (click)="previousPage()" > Back</a>
+	    </ion-col>	
+	  </ion-row>
+	</ion-grid> 
+
+</ion-content>

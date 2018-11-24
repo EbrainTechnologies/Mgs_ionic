@@ -1,0 +1,12 @@
+[segment] {
+    background: #003034;
+}
+[segment].segment-md-dark .segment-button {
+    color:white;
+}
+
+[segment].segment-md-dark .segment-button.activated, 
+[segment].segment-md-dark .segment-button.segment-activated{
+    border-color: white;
+    opacity: 1;
+}

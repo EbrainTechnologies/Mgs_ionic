@@ -1,0 +1,145 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>{{event?.eventName}}</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+<ion-content detail *ngIf="event != null">
+
+    <div class="detail-heading-image" *ngIf="event.eventPhotoUrl != null">
+        <img [src]="event.eventPhotoUrl" (error)="event.eventPhotoUrl = null" />
+    </div>
+    <ion-card>
+        <ion-item>
+            <b class="detail-heading">
+                {{event.eventName}} ({{event.eventType}})
+            </b>
+            <p>
+                <span class="detail-hightlight"
+                    [ngClass]="{
+                            'yellow': currentDate > event.registrationOpenAt && currentDate < event.registrationClosAt,
+                            'red' : currentDate >= event.registrationClosAt,
+                            'blue': currentDate <=  event.registrationOpenAt
+                        }">
+                    {{appContext.getFormattedDateTime(event.startDate)}} - {{appContext.getFormattedDateTime(event.endDate)}}</span>
+            </p>
+            <p>
+                <span class="detail selectable" (click)="appContext.openMap(event.address?.latitude, event.address?.longitude)">
+                    <ion-icon name="pin"></ion-icon>
+                    {{ event?.venueName != null && session?.venueName.toLowerCase() != 'unknown'? event.venueName + ', ': '' }}
+                    {{ event?.address?.name != null?event?.address?.name + ', ': ''}}
+                    {{ event?.address?.city}}, {{event?.address?.statecode}}
+                </span>
+            </p>
+            <br/>
+            <p>
+                <span class="comment">
+                    {{event.comments}}
+                </span>
+            </p>
+        </ion-item>
+    </ion-card>
+    
+    <ion-card>
+        <ion-item>
+            <p *ngIf="event.sports != null && event.sports.length >0">
+                <span class="detail-left label">Sports:</span>
+                <span class="detail-right">
+                    {{event.sports}}
+                </span>
+            </p>
+
+            <p>
+                <span class="detail-left label">Age requirements:</span>
+                <span class="detail-right">
+                        <span *ngIf="event.isAgeRestricted"> {{event.ageLimit}} yrs</span>
+                <span *ngIf="!event.isAgeRestricted"> No age restrictions. </span>
+                </span>
+            </p>
+
+            <p>
+                <span class="detail-left label">Registration Starts:</span>
+                <span class="detail-left"> {{appContext.getFormattedDateTime(event.registrationOpenAt)}}</span>
+            </p>
+
+            <p>
+                <span class="detail-left label">Registration Closes:</span>
+                <span class="detail-left"> {{appContext.getFormattedDateTime(event.registrationClosAt)}}</span>
+            </p>
+
+            <p *ngIf="loaded">
+                <span class="detail-left label">Status:</span>
+                <span class="detail-left">
+                    <span *ngIf="event.registrationStatus != null">
+                        <ion-badge *ngIf="event.registrationStatus == 'ACTIVE'" 
+                            color="secondary">
+                            Registered
+                        </ion-badge>
+                        <ion-badge *ngIf="event.registrationStatus == 'CANCELLED'" 
+                            color="light">
+                            Registration Cancelled
+                        </ion-badge>
+                        <ion-badge *ngIf="event.registrationStatus == 'REJECTED'" 
+                            color="danger">
+                            Registration Rejected
+                        </ion-badge>
+                    </span>
+                    <span *ngIf="event.registrationStatus == null">
+                        <ion-badge *ngIf="currentDate > event.registrationOpenAt && currentDate < event.registrationClosAt"
+                            color="primary">
+                            Registration Open
+                        </ion-badge>
+                        <ion-badge *ngIf="currentDate >= event.registrationClosAt "
+                            color="danger">
+                            Registration Closed
+                        </ion-badge>
+                        <ion-badge *ngIf="currentDate <= event.registrationOpenAt"
+                            color="danger">
+                            Coming Soon
+                        </ion-badge>
+                    </span>
+                </span>
+            </p>
+
+            <p>
+                <span class="detail-left label">Admission fee:</span>
+                <span class="detail-right">
+                        <span *ngIf="!event.isFree"> {{ event.entryFee | number }} {{event.currencyCode}}</span>
+                <span *ngIf="event.isFree"> Free </span>
+                </span>
+            </p>
+
+            <div *ngFor = "let discount of event.eventDiscounts">
+                <p *ngIf="discount.discountKey">
+                    <span class="detail-left label">{{discount.discountKey}}:</span>
+                    <span class="detail-right">
+                        {{discount.discountKeyValue}}
+                    </span>
+                </p>
+            </div>
+            <p>
+                <span class="detail-left label">Max. Participants:</span>
+                <span class="detail-right"> {{ event.maxParticipantsCount }}</span>
+            </p>
+        </ion-item>
+    </ion-card>
+    
+
+    <ion-footer *ngIf="loaded">
+        <ion-toolbar *ngIf="event.registrationStatus != 'ACTIVE' && currentDate > event.registrationOpenAt && currentDate < event.registrationClosAt"
+            (click)="register()">
+            <ion-title>Register</ion-title>
+        </ion-toolbar>
+        <ion-toolbar *ngIf="event.registrationStatus == 'ACTIVE' && currentDate > event.registrationOpenAt && currentDate < event.registrationClosAt"
+            (click)="cancelEventRegistration()">
+            <ion-title>Cancel</ion-title>
+        </ion-toolbar>
+        <ion-toolbar *ngIf="currentDate <= event.registrationOpenAt">
+            <ion-title>Coming Soon</ion-title>
+        </ion-toolbar>
+        <ion-toolbar *ngIf="currentDate >= event.registrationClosAt">
+            <ion-title>Registration Closed</ion-title>
+        </ion-toolbar>
+    </ion-footer>
+</ion-content>

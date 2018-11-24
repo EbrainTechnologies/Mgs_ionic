@@ -1,0 +1,52 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Sports Interested In</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<!-- <ion-content padding>
+	<h1>Select the most favourite Sport <br/> you play to start with</h1>
+
+	
+	<ion-grid>
+	  <ion-row>
+	    <ion-col col-6 *ngFor="let item of this.sportLists">
+            <a href="javascript:void(0)" (click)="goToRanking(item)"  class="select_sports">
+				<img src="assets/imgs/tennis.png" alt="tennis" /> 
+				<span>{{ item.name }}</span>
+			</a> 
+	    </ion-col>
+	  </ion-row>
+	</ion-grid>
+
+	<div class="details">
+		<p>The sport you select as the most favorite sport will become the default sport in our app. However you can change the preference through profile screen later.</p>
+	</div>
+</ion-content> -->
+
+
+<ion-content no-padding>
+<form #addSportsForm="ngForm" (ngSubmit)="addSports()" autocomplete="off">
+      <div class="sports_intrest" padding>
+        <div class="list w100">
+          <ion-row>
+            <ion-col col-7><b>Name</b></ion-col>
+            <ion-col col-3 text-center><b>Primary</b></ion-col>
+          </ion-row>
+        </div>
+        <div class="list w100">
+          <ion-row  *ngFor="let item of this.sportLists">
+            <ion-col col-2><ion-checkbox name="select" [ngModel]="select" (ionChange)="updateCucumber(item)" ></ion-checkbox></ion-col>
+            <ion-col col-7>{{ item.name }}</ion-col>
+            <ion-col col-3 text-center><ion-radio value="Java"></ion-radio></ion-col>
+          </ion-row>
+        </div>
+         <div *ngIf="error" class="alert alert-danger">{{error}}</div>
+	    <button ion-button type="submit" [disabled]="!addSportsForm.form.valid">Save</button>
+      </div>  
+      </form>
+</ion-content>

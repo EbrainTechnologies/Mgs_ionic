@@ -1,0 +1,18 @@
+<p>
+    <span class="item-left float-left">
+        <h2><span class="displayName">{{reservation.displayName}}</span></h2>
+        <p *ngIf="reservation.actionType == 'SESSION_BOOKING'" > Venue : {{reservation.venueName}}</p>
+        <p>{{reservation.dateStr}}</p>
+        <p>{{reservation.timeStr}}</p>
+        <p>{{reservation.displayStatus}}</p>
+    </span>
+    <span class="item-right float-right">
+        <div class="right-icon">
+            <div>
+                <img src="assets/imgs/tennis.png">
+            </div>
+            <p><span class="reservationType">{{reservation.reservationType}}</span></p>
+        </div>
+
+    </span>
+</p>

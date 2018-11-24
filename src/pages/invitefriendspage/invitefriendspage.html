@@ -1,0 +1,99 @@
+<!--
+  Generated template for the InvitefriendspagePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+      <button ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+        </button>
+    <ion-title>Invite Friends</ion-title>
+  </ion-navbar>
+  <ion-segment color="dark" [(ngModel)]="page">
+      <ion-segment-button value="0" (click)="selectedTab(0)"> 
+        INVITE BY MAIL
+      </ion-segment-button>
+      <ion-segment-button value="1" (click)="selectedTab(1)">
+       CONTACTS
+      </ion-segment-button>
+      <ion-segment-button value="2" (click)="selectedTab(2)">
+      SHARE & INVITE
+      </ion-segment-button>
+    </ion-segment>
+</ion-header>
+
+
+<ion-content padding>
+    <ion-slides #slider (ionSlideWillChange)="moveButton($event)">
+       <ion-slide>
+                <!-- <ion-input  class="inputtext" type="text" placeholder="Enter Friend Email"></ion-input> -->
+                <ion-item>
+                  <ion-label stacked>Enter Friend Email</ion-label>
+                  <ion-input type="email" ></ion-input>
+                </ion-item>
+
+                <div text-center margin-top>
+                    <button ion-button round color="rounded-form-text">Send invite</button>
+                   </div>
+        </ion-slide>
+      
+        <ion-slide>
+          <div class="top_section">
+            <h4 float-left margin-top class="text-color">Pick from contact</h4>
+            <p float-left  class="text-color">(Contact having email only selected)</p>
+            <span></span>
+          </div>
+
+          <div class="select_all">
+            <ion-item>
+              <ion-label>Sellect all</ion-label>
+              <ion-checkbox color="dark"></ion-checkbox>
+            </ion-item>
+          </div>
+
+          <div class="contact_list padding">
+            <ion-list>
+              <ion-item>
+                <ion-label>Rajesh</ion-label>
+                <ion-checkbox color="dark"></ion-checkbox>
+              </ion-item>
+              <ion-item>
+                <ion-label>Ravi</ion-label>
+                <ion-checkbox color="dark"></ion-checkbox>
+              </ion-item>
+              <ion-item>
+                <ion-label>Selvam</ion-label>
+                <ion-checkbox color="dark"></ion-checkbox>
+              </ion-item>
+              <ion-item>
+                <ion-label>Guru</ion-label>
+                <ion-checkbox color="dark"></ion-checkbox>
+              </ion-item>
+              <ion-item>
+                <ion-label>Ram</ion-label>
+                <ion-checkbox color="dark"></ion-checkbox>
+              </ion-item>
+            </ion-list>
+          </div> 
+            <div text-center margin-top>
+              <button ion-button round color="rounded-form-text">Send invite</button>
+            </div>
+        </ion-slide>
+      
+        <ion-slide class="share_page">
+            <ion-row>
+                <ion-col col-9 >
+                <p no-padding class="contentpage">Your Link</p>
+                <a no-padding class="contentpage">https://www.gamemadeesy.com</a>
+                </ion-col>
+                <ion-col col-3>
+                    <ion-icon padding-top float-right name="cloud-upload" class="fileupload"></ion-icon>
+                  </ion-col>
+              </ion-row>
+          </ion-slide>
+      
+        </ion-slides>
+</ion-content>

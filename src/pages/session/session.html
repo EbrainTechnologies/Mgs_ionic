@@ -1,0 +1,125 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Sessions</ion-title>
+  </ion-navbar>
+  <ion-segment color="dark" [(ngModel)]="selectedTabIndex" listing-tab>
+    <ion-segment-button *ngFor="let tab of tabs; let i = index" [value]="i" (click)="selectTab(i)">
+      {{tab.page}}
+    </ion-segment-button>
+  </ion-segment>
+</ion-header>
+
+
+<ion-content listing>
+  <ion-slides #slider (ionSlideWillChange)="moveButton($event)">
+
+    <ion-slide no-padding>
+
+      <ion-list>
+          <ion-card *ngFor="let session of openSession" >
+              <ion-item (click)="navigateToSessionDetail(session)">
+                  <p>
+                    <span class="item-left float-left">
+                      <ion-icon name="calendar"></ion-icon>
+                      {{appContext.getFormattedDate(session.startDate)}}
+                      <br>
+                       <ion-icon name="clock"></ion-icon>
+                      {{appContext.getFormattedTime(session.startDate)}}
+                      <br>
+                      <ion-icon name="pin"></ion-icon>
+                      {{ session?.venueName != null && session?.venueName.toLowerCase() != 'unknown'? session.venueName + ', ': '' }}
+                      {{ session?.address?.name != null?session?.address?.name + ', ': ''}}
+                      {{ session?.address?.city}}, {{session?.address?.statecode}}
+                    </span>            
+                    <span class="item-right float-right">
+                        <div class="right-icon">
+                          <div>
+                              <img src="{{imageBaseUrl}}upload/viewsportpicture/{{session?.sportid}}">
+                          </div>
+                          <ion-badge color="primary">{{session.playTypeName}}</ion-badge>
+                        </div>
+                        
+                    </span>
+                  </p>
+                </ion-item>
+          </ion-card>
+        
+      </ion-list>
+    </ion-slide>
+
+    <ion-slide no-padding>
+
+      <ion-list>
+        <ion-card  *ngFor="let session of closedSession">
+          <ion-item>
+              <p>
+                <span class="item-left float-left">
+                  <ion-icon name="calendar"></ion-icon>
+                  {{appContext.getFormattedDateTime(session.startDate)}}
+                  <br>
+                  <ion-icon name="clock"></ion-icon>
+                  {{appContext.getFormattedTime(session.startDate)}}
+                  <br>
+                  <ion-icon name="pin"></ion-icon>
+                  {{ session?.venueName != null && session?.venueName.toLowerCase() != 'unknown'? session.venueName + ', ': '' }}
+                  {{ session?.address?.name != null?session?.address?.name + ', ': ''}}
+                  {{ session?.address?.city}}, {{session?.address?.statecode}}
+                </span>            
+                <span class="item-right float-right">
+                    <div class="right-icon">
+                      <div>
+                          <img src="{{imageBaseUrl}}upload/viewsportpicture/{{session?.sportid}}">
+                      </div>
+                      <ion-badge color="primary">{{session.playTypeName}}</ion-badge>
+                    </div>
+                    
+                </span>
+              </p>
+            </ion-item>
+        </ion-card>
+      </ion-list>
+    </ion-slide>
+
+    <ion-slide no-padding>
+
+      <ion-list>
+        <ion-card *ngFor="let session of cancelledSession">
+          <ion-item>
+            <p>
+              <span class="item-left float-left">
+                <ion-icon name="calendar"></ion-icon>
+                {{appContext.getFormattedDate(session.startDate)}}
+                <br>
+                  <ion-icon name="clock"></ion-icon>
+                  {{appContext.getFormattedTime(session.startDate)}}
+                <br>
+                <ion-icon name="pin"></ion-icon>
+                {{ session?.venueName != null && session?.venueName.toLowerCase() != 'unknown'? session.venueName + ', ': '' }}
+                {{ session?.address?.name != null?session?.address?.name + ', ': ''}}
+                {{ session?.address?.city}}, {{session?.address?.statecode}}
+              </span>            
+              <span class="item-right float-right">
+                  <div class="right-icon">
+                    <div>
+                        <img src="{{imageBaseUrl}}upload/viewsportpicture/{{session?.sportid}}">
+                    </div>
+                    <ion-badge color="primary">{{session.playTypeName}}</ion-badge>
+                  </div>
+                  
+              </span>
+            </p>
+          </ion-item>
+        </ion-card>
+      </ion-list>
+    </ion-slide>
+  </ion-slides>
+
+  <ion-fab right bottom >
+    <button ion-fab mini color="secondary" (click)="hostSession($event)">
+      <ion-icon name="add"></ion-icon>
+    </button>
+  </ion-fab>
+</ion-content>

@@ -1,0 +1,27 @@
+page-addrank {
+   
+   .rounded {
+        width: 100%;
+        -moz-border-radius: 50px;
+        -webkit-border-radius: 50px;
+        border-radius: 25px;
+        border:1px solid #003034; 
+    }
+
+    .text-color{color:color($colors,green-text);}
+    .label-md{font-weight:bold; margin-bottom:5px; margin-top:15px; font-size:15px;}
+    ion-select{max-width:100%;}
+    .item-md{padding-left:0; }
+    .select-md .select-icon .select-icon-inner{left:auto; right:20px;}
+    .select-md .select-icon{position:inherit;}
+    .item-md.item-input.item-input-has-focus .item-inner, .item-md.item-input.input-has-focus .item-inner{
+    	border-bottom-color:0; box-shadow:none;
+    }
+    .item-md.item-block .item-inner{border-bottom:none;}
+    .list-md{margin-bottom:0px;}
+    .toggle-checked .toggle-icon, .toggle-checked .toggle-inner{ background-color: #003034 !important;}
+    .item-md .toggle-md{margin-top:5px;}
+    .item-input ion-input, .item-input ion-textarea{color:black !important}
+    .select-text{color:black}
+   
+}

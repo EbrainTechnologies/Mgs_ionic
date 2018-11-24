@@ -1,0 +1,42 @@
+@import '../listing.scss';
+
+page-reservations {
+
+    .displayName {
+        color: orange;
+    }
+
+    .reservationType {
+        color:#736f6f;
+    }
+
+    .item-left {
+        font-size: 12px;
+    }
+
+    .item-heading {
+        color:color($colors, green-text);
+        margin-bottom:5px; 
+        display:block;
+    }
+
+    ion-segment {
+        background-color: #003034 !important;
+    }
+
+}
+
+user-reservation {
+    .img-content {
+        margin-top: -30px;
+        width: auto;
+        max-width: 100%;
+        height: auto;
+        max-height: 100%;
+    }
+
+    ion-content {
+        overflow-y: auto;
+    }
+}
+

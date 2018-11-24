@@ -1,0 +1,23 @@
+page-register {
+.register{
+    background: url("../assets/imgs/1.jpg") no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    }
+.logo{
+    width: 50%;
+	display: block;
+	margin:20px auto 0 ;
+	text-align: center;
+	padding: 0px;
+}
+.layer {
+    box-shadow: inset 0 0 0 1000px rgba(111, 52, 29, 0.61);
+    width: 100%;
+}
+.btn_section{padding:0 10px; margin-top:50px;}
+.btn_section button{padding:25px 0; background-color: rgba(255, 255, 255, 0.1); margin-top:16px !important; font-weight:normal;}
+.btn_section .button-md:hover:not(.disable-hover){ background-color: rgba(255, 255, 255, 0.1);}
+.back_btn{color:#fff; font-size:15px; display:block; text-align:center; margin-top:22%;}
+}

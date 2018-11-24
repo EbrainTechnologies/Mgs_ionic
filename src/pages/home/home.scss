@@ -1,0 +1,46 @@
+.card-background-page {
+
+  .grid{padding:0px;}
+
+  .card-md {
+    position: relative;
+    text-align: center;
+    max-height:150px;
+    margin:0px;
+    width:100%;
+    background:#000;
+  }
+
+  .card-title {
+    position: absolute;
+    top: 36%;
+    font-size: 1.5em;
+    width: 100%;
+    font-weight: bold;
+    color: #fff;
+  }
+  .card-title.small_title{
+     font-size:1.2em;
+     text-transform: capitalize;
+  }
+
+  .card-subtitle {
+    font-size: 1.0em;
+    position: absolute;
+    top: 52%;
+    width: 100%;
+    color: #fff;
+  }
+.card-subtitle button {
+    font-size: 11px;
+    height:auto;
+    background-color:#e67309;
+    text-transform: capitalize;
+    padding:6px 10px;
+    font-weight:300;
+  }
+
+  .card-subtitle button:hover{background-color:#e67309;}
+  ion-card img{opacity:0.7;}
+
+}

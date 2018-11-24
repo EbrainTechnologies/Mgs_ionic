@@ -1,0 +1,59 @@
+<!--
+  Generated template for the RegPlayerPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-content padding class="reg-player layer">
+<div class="inner_content">
+   	<ion-grid>
+	  <ion-row>
+	    
+	    <ion-col>
+	      <div class="logo" col-12 center><img src="assets/imgs/logo2.png" alt="logo"></div>
+	    </ion-col>
+	    
+	  </ion-row>
+	</ion-grid> 
+	<div class="app_title"><p>Create an Account</p></div>
+	<form #regForm="ngForm" (ngSubmit)="regreference()" autocomplete="off">
+        <ion-grid>
+			<ion-list padding>
+
+			  <ion-item>
+			    <ion-label stacked>E-MAIL</ion-label>
+			    <ion-input name="email" id="email" [(ngModel)]="this.regDetail.emailid"  required type="email" pattern="[A-Za-z0-9._%+-]{3,}@[a-zA-Z]{3,}([.]{1}[a-zA-Z]{2,}|[.]{1}[a-zA-Z]{2,}[.]{1}[a-zA-Z]{2,})"></ion-input>
+			  </ion-item>
+
+			  <ion-item>
+			    <ion-label stacked>PASSWORD</ion-label>
+			    <ion-input name="password" id="password" [(ngModel)]="this.regDetail.password" required type="{{type}}" (keyup)="this.passwordValueValidator()"   pattern="(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}"></ion-input>
+			   	<button *ngIf="!showPass" ion-button clear color="light" type="button" item-right (click)="showPassword()"> <ion-icon class="eye_icon" name="ios-eye-off-outline"></ion-icon></button>
+ 				<button *ngIf="showPass" ion-button clear color="primary" type="button" item-right (click)="showPassword()"> <ion-icon class="eye_icon" name="ios-eye-outline"></ion-icon></button>
+              </ion-item>
+
+               <ion-label *ngIf="this.PassVal" class="error_text"><p>Password should contain at least 8 characters ,a symbol, number and upper-case letter</ion-label>	
+
+			  <ion-item>
+			    <ion-label stacked>RE-TYPE PASSWORD</ion-label>
+			    <ion-input name="cPassword" id="cPassword" [(ngModel)]="this.regDetail.cPassword"  required type="{{type2}}"  (keyup)="this.cPasswordValueValidator()" pattern="(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}"></ion-input>
+			    <button *ngIf="!showPass2" ion-button clear color="light" type="button" item-right (click)="showCPassword()"> <ion-icon class="eye_icon" name="ios-eye-off-outline"></ion-icon></button>
+ 				<button *ngIf="showPass2" ion-button class="eye_icon" clear color="primary" type="button" item-right (click)="showCPassword()"> <ion-icon name="ios-eye-outline"></ion-icon></button>
+			  </ion-item>
+			  <ion-label *ngIf="this.cPassVal" class="error_text"><p>Password should contain at least 8 characters ,a symbol, number and upper-case letter</ion-label>	
+			  <ion-item>
+			    <a href="javascript:void(0)" start  class="back_btn" (click)="register()"> 
+			    	<ion-icon name="ios-arrow-dropleft"></ion-icon>
+			    </a>
+                <div *ngIf="error" class="alert alert-danger"  class="error_text">{{error}}</div>
+			    <button no-padding href="javascript:void(0)" item-end  class="back_btn" type="submit" [disabled]="!regForm.form.valid"> 
+			    	<ion-icon name="ios-arrow-dropright"></ion-icon>
+			    </button>
+              </ion-item>
+
+	        </ion-list>
+	    </ion-grid>
+	</form>
+	<p class="bottom_text">By creating an account I agree to Sports<br/> Made Easy <a href="javascript:void(0)">Terms of use,</a> and <a href="javascript:void(0)">Privacy Policy</a></p>
+</div>
+</ion-content>

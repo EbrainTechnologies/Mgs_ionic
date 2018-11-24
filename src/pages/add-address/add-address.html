@@ -1,0 +1,88 @@
+<!--
+  Generated template for the AddAddressPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>
+    	<span class="back" (click)="back(MyAddressPage)"><ion-icon name="arrow-back"></ion-icon></span>
+    	Add Address
+    </ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <form #updateAddressForm="ngForm" (ngSubmit)="updateAddress()" autocomplete="off">
+	<ion-list>
+		<ion-row>
+	    	<!--ion-col col-6>
+	    		<ion-list>
+	    			<ion-label class="text-color">Country</ion-label>
+				  <ion-item  class="rounded">
+				    <ion-select name="country" id="country" [(ngModel)]="this.userData.countrycode" required>
+				      <ion-option value="nes">United States</ion-option>
+				      <ion-option value="n64">Cannada</ion-option>
+				      <ion-option value="ps">India</ion-option>
+				      <ion-option value="genesis">Portugual</ion-option>
+				    </ion-select>
+				  </ion-item>
+				</ion-list>
+      </ion-col-->
+	    	<ion-col col-12>
+	    		 <ion-list>
+	    		 		<ion-label class="text-color">Address Type</ion-label>
+					  <ion-item class="rounded">
+					    <ion-select name="address" id="address" [(ngModel)]="this.userData.name" required >
+					      <ion-option value="billing-address">Billing Address</ion-option>
+					      <ion-option value="home">Home</ion-option>
+					      <ion-option value="shipping-address">PlayStation</ion-option>
+					      <ion-option value="main">Sega Genesis</ion-option>
+					    </ion-select>
+					  </ion-item>
+				  </ion-list>
+			</ion-col>
+	  	</ion-row>
+	  <ion-label class="text-color">Address Line 1</ion-label>
+	  <ion-item class="rounded">
+	    <ion-input type="text" name="street1" id="street1" [(ngModel)]="this.userData.street1" required></ion-input>
+	  </ion-item>
+
+	  <ion-label class="text-color">Address Line 2</ion-label>
+	  <ion-item class="rounded">
+	    <ion-input type="text" name="street2" id="street2" [(ngModel)]="this.userData.street2" ></ion-input>
+	  </ion-item>
+
+	  <ion-label class="text-color">City</ion-label>
+	  <ion-item class="rounded">
+	    <ion-input type="text" name="city" id="city" [(ngModel)]="this.userData.city" ></ion-input>
+	  </ion-item>
+
+	  <ion-label class="text-color">State</ion-label>
+	  <ion-item class="rounded">
+	    <ion-input type="text" name="statecode" id="statecode" [(ngModel)]="this.userData.statecode"></ion-input>
+	  </ion-item>
+
+	  <ion-label class="text-color">Zip Code</ion-label>
+	  <ion-item class="rounded">
+	    <ion-input type="text" name="postcode" id="postcode" [(ngModel)]="this.userData.postcode"></ion-input>
+	  </ion-item>
+
+    <ion-label class="text-color">Country</ion-label>
+	  <ion-item class="rounded">
+	    <ion-input type="text" name="country" id="country" [(ngModel)]="this.userData.countrycode"></ion-input>
+	  </ion-item>
+
+ 	   <ion-item>
+	      <ion-label class="text-color">Primary</ion-label>
+	      <ion-toggle color="secondary" name="isPrimary" id="isPrimary" [(ngModel)]="this.userData.isPrimary" ></ion-toggle>
+	    </ion-item>
+	     <div *ngIf="error" class="alert alert-danger">{{error}}</div>
+	    <button ion-button color="light" round block type="submit" [disabled]="!updateAddressForm.form.valid">Save</button>
+	</ion-list>
+	</form>
+</ion-content>

@@ -1,0 +1,9 @@
+page-select-sports {
+	span.back{font-size:18px; padding-right:30px; }
+	.label-md{font-weight:bold; font-size:15px; margin-bottom:0px;}
+	.item-md p{font-size:13px; color:#000; background:#eee; padding:5px 10px; font-weight:normal;}
+	img{width:20px;}
+	.item-block:last-child{border-bottom:1px solid #dedede;}
+	.list-md .item-block .item-inner{border-bottom:0px;}
+	.text-color{color:color($colors,green-text);}
+}

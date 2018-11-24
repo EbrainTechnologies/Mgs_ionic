@@ -1,0 +1,70 @@
+page-paymentAddmission {
+    
+    .list-md .item-input:last-child {
+        border-bottom: 1px solid; 
+    }
+
+    .list-ios > .item-block:last-child, .list-ios > .item-wrapper:last-child .item-block {
+        border-bottom: 1px solid; 
+    }
+
+    ion-item .item-inner {
+        border-bottom: 0px!important;
+    }
+
+    .item-inner {
+        border-bottom-color: #003034!important;
+        -webkit-box-shadow: none!important;
+        box-shadow: none!important;
+    }
+
+    .label{
+        color: #003034 !important;
+        font-weight: bold;
+        margin-top: 5px;
+    }
+
+    .bordercolor {
+        border-color: #003034 !important ;
+    }
+
+    .input-spacing {
+        margin-bottom: 0px;
+    }
+
+    .row-spacing{
+        margin-bottom: 0px;
+    }
+    
+    ion-item.exp-input {
+        padding-left: 0px;
+    }
+
+    ion-item.exp-input .item-inner {
+        padding-right: 0px!important;
+    }
+
+    ion-item.exp-input ion-input {
+        padding-left: 17px;
+    }
+
+    ion-item.exp-input ion-input.exp-month {
+        margin-right: 30px;
+    }
+    .payment-admission-form-input {
+        border: 1px solid;
+        border-radius: 19px;
+    }
+
+    .payment-admission-header {
+        background: #003034 !important;
+    }
+
+    .pay-btn.button-md{
+        background: #003034 !important; 
+    }
+
+    .button{
+        text-align: center;
+    }
+}

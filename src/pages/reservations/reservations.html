@@ -1,0 +1,114 @@
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>My Bookings</ion-title>
+    </ion-navbar>
+    <ion-segment color="dark" [(ngModel)]="selectedTabIndex" header-tab>
+        <ion-segment-button *ngFor="let tab of tabs; let i = index" [value]="i" (ionSelect)="selectTab(i, tab)">
+            {{tab.page}}
+        </ion-segment-button>
+    </ion-segment>
+</ion-header>
+
+
+<ion-content listing class="user-reservation">
+    <ion-slides #slider (ionSlideWillChange)="moveButton($event)">
+        <ion-slide no-padding>
+            <ion-list>
+                <ion-card *ngFor="let reservation of scheduledReservations">
+                    <ion-item (click)="navigateToSessionDetail(reservation)">
+                        <!-- TODO CHECK THE BELOW LATER -->
+                       <!--b class="item-heading" *ngIf="user.userid == reservation.organizerId">Your match</b>
+                       <b class="item-heading" *ngIf="user.userid != reservation.organizerId">{{reservation.organizerName}}</b-->
+                        <p>
+                            <span class="item-left float-left">
+                                <b class="item-heading highlight">{{reservation.displayName}}</b>
+                                <ion-icon name="calendar"></ion-icon>
+                                {{appContext.getFormattedDate(reservation.reservedDate)}}
+                                <br>
+                                <ion-icon name="clock"></ion-icon>
+                                {{appContext.getFormattedTime(reservation.reservedDate)}} - {{appContext.getFormattedTime(reservation.endDate)}}
+                                <ion-icon name="pin" *ngIf="reservation.venueName != null" ></ion-icon>
+                                {{reservation.venueName != null?reservation.venueName:""}}
+                                <span *ngIf="reservation.playerId != null">
+                                    <br>
+                                    <button ion-button (click)="cancelPlayerInvite(reservation)">Cancel</button>
+                                </span>
+                            </span>
+                            <span class="item-right float-right">
+                                <div class="right-icon">
+                                    <div *ngIf="reservation.sportId != null">
+                                        <img src="{{imageBaseUrl}}upload/viewsportpicture/{{reservation.sportId}}">
+                                    </div>
+                                    <span color="grey"><b>{{reservation.reservationType}}</b></span>
+                                </div>
+                            </span>
+                        </p>
+                    </ion-item>
+                </ion-card>
+            </ion-list>
+        </ion-slide>
+
+
+        <ion-slide no-padding>
+            <ion-list>
+                <ion-card *ngFor="let reservation of completedReservations">
+                    <ion-item>
+                        <p>
+                            <span class="item-left float-left">
+                                <b class="item-heading highlight">{{reservation.displayName}}</b>
+                                <ion-icon name="calendar"></ion-icon>
+                                {{appContext.getFormattedDate(reservation.reservedDate)}}
+                                <br>
+                                <ion-icon name="clock"></ion-icon>
+                                {{appContext.getFormattedTime(reservation.reservedDate)}} - {{appContext.getFormattedTime(reservation.endDate)}}
+                                <ion-icon name="pin" *ngIf="reservation.venueName != null" ></ion-icon>
+                                {{reservation.venueName != null?reservation.venueName:""}}
+                            </span>
+                            <span class="item-right float-right">
+                                <div class="right-icon">
+                                    <div *ngIf="reservation.sportId != null">
+                                        <img src="{{imageBaseUrl}}upload/viewsportpicture/{{reservation.sportId}}">
+                                    </div>
+                                    <span color="grey"><b>{{reservation.reservationType}}</b></span>
+                                </div>
+                            </span>
+                        </p>
+                    </ion-item>
+                </ion-card>
+            </ion-list>
+        </ion-slide>
+
+        <ion-slide no-padding>
+            <ion-list>
+                <ion-card *ngFor="let reservation of cancelledReservations">
+                    <ion-item>
+                        <p>
+                            <span class="item-left float-left">
+                                <b class="item-heading highlight">{{reservation.displayName}}</b>
+                                <ion-icon name="calendar"></ion-icon>
+                                {{appContext.getFormattedDate(reservation.reservedDate)}}
+                                <br>
+                                <ion-icon name="clock"></ion-icon>
+                                {{appContext.getFormattedTime(reservation.reservedDate)}} - {{appContext.getFormattedTime(reservation.endDate)}}
+                                <ion-icon name="pin" *ngIf="reservation.venueName != null" ></ion-icon>
+                                {{reservation.venueName != null?reservation.venueName:""}}
+                            </span>
+                            <span class="item-right float-right">
+                                <div class="right-icon">
+                                    <div *ngIf="reservation.sportId != null">
+                                        <img src="{{imageBaseUrl}}upload/viewsportpicture/{{reservation.sportId}}">
+                                    </div>
+                                    <span color="grey"><b>{{reservation.reservationType}}</b></span>
+                                </div>
+                            </span>
+                        </p>
+                    </ion-item>
+                </ion-card>
+            </ion-list>
+        </ion-slide>
+    </ion-slides>
+
+</ion-content>

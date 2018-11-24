@@ -1,0 +1,34 @@
+page-homeclub {
+
+
+.edit_icon{font-size: 25px;color: rgb(0, 174, 255); padding-right:5px;}
+.delete_icon{font-size: 25px; color: red;}
+.homeclubpara{margin-top: 0px;font-weight: bold; font-size:16px;}
+.clubaddbtn{margin-bottom: 50px;margin-right: 20px;background-color: #003034; color:#fff;}
+.club_list{border-bottom:1px solid #dedede; margin-top:25px;}
+.club_list p{margin:5px 0;}
+.edit_icon ion-icon, .delete_icon ion-icon{font-size:25px !important; margin-top:15px !important;}
+.game_icon{max-width:30px;}
+
+
+
+.rounded {
+        width: 100%;
+        -moz-border-radius: 50px;
+        -webkit-border-radius: 50px;
+        border-radius: 25px;
+        border:1px solid #003034; 
+    }
+
+    .text-color{color:color($colors,green-text);}
+    .add_club .label-md{font-weight:bold; margin-bottom:5px; margin-top:15px; font-size:15px;}
+    .add_club ion-select{max-width:100%;}
+    .add_club .item-md{padding-left:0; }
+    .add_club .select-md .select-icon .select-icon-inner{left:auto; right:20px;}
+    .add_club .select-md .select-icon{position:inherit;}
+    .add_club .item-md.item-input.item-input-has-focus .item-inner, .item-md.item-input.input-has-focus .add_club .item-inner{
+    	border-bottom-color:0; box-shadow:none;
+    }
+    .add_club .item-md.item-block .item-inner{border-bottom:none;}
+    .add_club .list-md{margin-bottom:0px;}
+}

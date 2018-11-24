@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      {{currentPlace}}
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content detail>
+  <div class="padding">
+    <ion-item>
+      
+      <ion-avatar item-start>
+        <img src="{{imageBaseUrl}}upload/viewuserimage/{{player?.userid}}">
+      </ion-avatar>
+      <h2 class="text-color" color="green-text">{{ player?.fullName }}</h2>
+      <div class="heart_icon">
+        <a href="javascript:void(0)" (click)="markFavorite(0)" *ngIf="player?.isFavoriteUser == true">
+          <ion-icon name="heart"></ion-icon>
+        </a>
+        <a href="javascript:void(0)" (click)="markFavorite(1)" *ngIf="player?.isFavoriteUser == false">
+          <ion-icon name="heart-outline"></ion-icon>
+        </a>
+      </div>
+      <p class="text-color city_name">{{ player?.locationText }}</p>
+    </ion-item>
+    <hr>
+      <h5 class="green">Ranking</h5>
+      {{ player?.rankingText }}
+  </div>
+
+</ion-content>

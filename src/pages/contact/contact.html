@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Contact Us</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+	<p>Our friendly customer service representatives are always ready to assits you.</p>
+      <form #contactUsForm="ngForm" (ngSubmit)="send()" autocomplete="off">
+
+      <ion-list>	
+
+		  <ion-item>
+		    <ion-label stacked>Name</ion-label>
+		    <ion-input type="text" name="name" id="name" [(ngModel)]="this.userData.name"></ion-input>
+		  </ion-item>
+
+		  <ion-item>
+		    <ion-label stacked>Email</ion-label>
+		    <ion-input type="email"  name="emailid" id="emailid" [(ngModel)]="this.userData.emailid"></ion-input>
+		  </ion-item>
+
+		  <ion-item>
+		    <ion-label stacked>Phone</ion-label>
+		    <ion-input type="number" name="phoneNumber" id="phoneNumber" [(ngModel)]="this.userData.phoneNumber"></ion-input>
+		  </ion-item>
+
+		  <ion-item>
+	        <ion-label stacked>Message</ion-label>
+	        <ion-textarea  name="message" id="message" [(ngModel)]="this.userData.message"></ion-textarea>
+	      </ion-item>
+ 
+	      <ion-item class="radio_group">
+	        <input type="radio" name="type" value="Player" id="type" [(ngModel)]="this.userData.type"> Player&nbsp;&nbsp;&nbsp;
+		  	<input type="radio" name="type" value="Coach" id="type" [(ngModel)]="this.userData.type"> Coach&nbsp;&nbsp;&nbsp;
+		  	<input type="radio" name="type" value="Club" id="type" [(ngModel)]="this.userData.type"> Club
+	      </ion-item>
+
+	      <ion-item>
+	      	<button ion-button type="submit" block round class="green_btn">Submit</button>
+	      </ion-item>
+	      
+
+		</ion-list>
+    </form>
+</ion-content>

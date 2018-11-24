@@ -1,0 +1,29 @@
+@import '../detail.scss';
+page-inviting-player {
+
+    .city_name{
+        font-size:13px !important; margin-top:5px;
+    }
+
+    .item-md ion-avatar ion-img, .item-md ion-avatar img {
+        width:75px; height:75px;
+    }
+
+    .item-md h2{
+        font-weight:bold; font-size:2.8rem; white-space:normal;
+    }
+
+    .padding {
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-bottom: 20px;
+        background: white;
+    }
+
+    hr {
+        display: block;
+        color: gray;
+        border-width: 0.5px;
+    }
+
+}

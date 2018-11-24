@@ -1,0 +1,26 @@
+<ion-menu [content]="content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-avatar item-center>
+         <!-- <img src="assets/imgs/1.jpg"> -->
+        <div class="mt-image" style="text-align: center;">
+           <img src="{{this.startPoint}}upload/viewuserimage/{{ this.userInfo.userid }}" > 
+         
+        </div>
+      </ion-avatar>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content class="menu_bg">
+    <div class="menu_content">
+      <ion-list>
+      <button ion-item menuClose *ngFor="let p of pages" (click)="openPage(p)">
+        <ion-icon item-start [name]="p.icon" [color]="isActive(p)" class="custom-icon"></ion-icon>
+        {{ p.title }}
+      </button>
+    </ion-list>
+    </div>
+  </ion-content>
+</ion-menu>
+<!-- main navigation -->
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false" [ngClass]="{'footer-tool-bar-hidden': footerIsHidden}"></ion-nav>

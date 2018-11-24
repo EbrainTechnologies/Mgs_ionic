@@ -1,0 +1,150 @@
+<!--
+  Generated template for the HomeclubPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+      <ion-title><span class="back" (click)="back(MyProfilePage)"><ion-icon name="arrow-back"></ion-icon></span>My Home Clubs</ion-title>
+      <ion-fab right bottom>
+          <button ion-fab class="clubaddbtn"><ion-icon name="add"></ion-icon></button>
+      </ion-fab>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content no-padding>
+      <!-- <div class="sports_intrest" padding>
+        <div class="list w100">
+          <ion-row>
+            <ion-col col-2><ion-checkbox checked="true"></ion-checkbox></ion-col>
+            <ion-col col-7><b>Name</b></ion-col>
+            <ion-col col-3 text-center><b>Primary</b></ion-col>
+          </ion-row>
+        </div>
+        <div class="list w100">
+          <ion-row>
+            <ion-col col-2><ion-checkbox checked="true"></ion-checkbox></ion-col>
+            <ion-col col-7>Hockey</ion-col>
+            <ion-col col-3 text-center><ion-radio value="Java"></ion-radio></ion-col>
+          </ion-row>
+        </div>
+        <div class="list w100">
+          <ion-row>
+            <ion-col col-2><ion-checkbox checked="true"></ion-checkbox></ion-col>
+            <ion-col col-7>Golf</ion-col>
+            <ion-col col-3 text-center><ion-radio value="Java"></ion-radio></ion-col>
+          </ion-row>
+        </div><div class="list w100">
+          <ion-row>
+            <ion-col col-2><ion-checkbox checked="true"></ion-checkbox></ion-col>
+            <ion-col col-7>Swimming</ion-col>
+            <ion-col col-3 text-center><ion-radio value="Java"></ion-radio></ion-col>
+          </ion-row>
+        </div>
+        <div class="list w100">
+          <ion-row>
+            <ion-col col-2><ion-checkbox checked="true"></ion-checkbox></ion-col>
+            <ion-col col-7>Tennis</ion-col>
+            <ion-col col-3 text-center><ion-radio value="Java"></ion-radio></ion-col>
+          </ion-row>
+        </div> 
+        <div class="list w100">
+          <ion-row>
+            <ion-col col-2><ion-checkbox checked="true"></ion-checkbox></ion-col>
+            <ion-col col-7>Table Tennis</ion-col>
+            <ion-col col-3 text-center><ion-radio value="Java"></ion-radio></ion-col>
+          </ion-row>
+        </div>
+        <ion-row>
+          <ion-col col-2></ion-col>
+          <ion-col col-8>
+            <button ion-button full color="light" round type="submit" class="save-btn" margin-top>Save</button>
+          </ion-col>
+          <ion-col col-2></ion-col>
+        </ion-row>
+      </div>  
+
+      .fab ion-icon{color:#003034;}
+.clubaddbtn{margin-bottom: 50px;margin-right: 20px;background-color: #fff;}
+ion-fab{top:15px; right:0;}
+.fab{width:30px; height:30px;}
+.sports_intrest .list{border-bottom:1px solid #003034; padding:5px 0;}
+.w100{width:100%;}
+
+       -->
+       <ion-list>
+         <div class="club_list">
+           <ion-row>
+            <ion-col col-2>
+              <img class="game_icon" src="assets/imgs/golf.png"> 
+            </ion-col>
+            <ion-col col-7>
+              <p class="homeclubpara">Fabious</p>
+              <p>golf</p>
+            </ion-col>
+            <ion-col col-3>
+              <div text-end>
+                <a href="#" class="edit_icon"> <ion-icon name="create"></ion-icon></a>
+                <a href="#" class="delete_icon"><ion-icon name="trash"></ion-icon></a>
+              </div>
+            </ion-col>
+          </ion-row>
+         </div>
+         <div class="club_list">
+           <ion-row>
+            <ion-col col-2>
+              <img class="game_icon" src="assets/imgs/tennis.png"> 
+            </ion-col>
+            <ion-col col-7>
+              <p class="homeclubpara">Fabious</p>
+              <p>golf</p>
+            </ion-col>
+            <ion-col col-3>
+              <div text-end>
+                <a href="#" class="edit_icon"> <ion-icon name="create"></ion-icon></a>
+                <a href="#" class="delete_icon"><ion-icon name="trash"></ion-icon></a>
+              </div>
+            </ion-col>
+          </ion-row>
+         </div>
+       </ion-list>
+      <ion-fab right bottom>
+        <button ion-fab class="clubaddbtn"><ion-icon name="add"></ion-icon></button>
+      </ion-fab>
+
+
+     <!--add home Club starts -->
+     <div class="add_club" padding>
+       <form>
+       <ion-list>
+         <ion-label class="text-color">Sport</ion-label>
+         <ion-item  class="rounded">
+            <ion-select name="country" required>
+              <ion-option value="selectsport">Select a Sport</ion-option>
+              <ion-option value="golf">Golf</ion-option>
+            </ion-select>
+          </ion-item>
+
+          <ion-label class="text-color">Select a club Name</ion-label>    
+          <ion-item class="rounded">
+            <ion-input type="text" name="street1" required></ion-input>
+          </ion-item>
+
+          <ion-grid>
+            <ion-row>
+              <ion-col col-2></ion-col>
+              <ion-col col-8>
+                <button ion-button full color="light" round type="submit" class="save-btn"> Save </button>
+              </ion-col>
+              <ion-col col-2></ion-col>
+            </ion-row>
+          </ion-grid>
+       </ion-list>
+     </form>
+     </div>
+     <!--add home Club Ends -->
+</ion-content>

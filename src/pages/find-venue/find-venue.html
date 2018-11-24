@@ -1,0 +1,85 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+    	Find a Venue
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+<form #findVenueForm="ngForm" (ngSubmit)="findVenue()" autocomplete="off">
+	<ion-list>
+	<ion-label>Enter a Location</ion-label>  	
+	  <ion-item class="rounded">
+	    <ion-input type="text" placeholder="Enter City, State" name="location" id="location" [(ngModel)]="this.venuSearchModel.address.city" required></ion-input>
+	  </ion-item>
+		<ion-row>
+	    	<ion-col col-6>
+	    		<ion-list>
+	    			<ion-label>Select a Sport</ion-label>
+				  <ion-item  class="rounded">
+				    <ion-select name="sportid" [(ngModel)]="this.venuSearchModel.sportName" required>
+				      <ion-option *ngFor="let userdefaultExpertise of this.userExpertiseModel"  value="{{ userdefaultExpertise.sportName }}">{{ userdefaultExpertise.sportName }}</ion-option>
+				     
+				    </ion-select>
+				  </ion-item>
+				</ion-list>
+            </ion-col>
+	    	<ion-col col-6>
+	    	<ion-list>
+	  		  <ion-label>Start Date</ion-label>
+	  		   <ion-item>
+      			<ion-datetime class="rounded" displayFormat="MMM DD YYYY" name="date" [(ngModel)]="this.venuSearchModel.playingDate" required></ion-datetime>
+    			</ion-item>
+    		 </ion-list>
+	    		
+			</ion-col>
+	  	</ion-row>
+	  	<ion-row>
+	  		<ion-col col-6>
+	  		  <ion-list>
+	  		    <ion-label>Start Time</ion-label>
+	  		    <ion-item>
+     			<ion-datetime class="rounded" displayFormat="h:mm A" pickerFormat="h mm A" name="startTime" [(ngModel)]="this.venuSearchModel.startTime" required></ion-datetime>
+    			</ion-item>
+    		 </ion-list>
+	  		</ion-col>
+	  		<ion-col col-6>
+	  		 <ion-list>
+	  		    <ion-label>End Time</ion-label>
+	  		    <ion-item>
+     			<ion-datetime class="rounded" displayFormat="h:mm A" pickerFormat="h mm A" name="endTime" [(ngModel)]="this.venuSearchModel.endTime" required></ion-datetime>
+    			</ion-item>
+    		 </ion-list>	
+	  		</ion-col>
+	  	</ion-row>
+
+	    <ion-label>
+           Distance {{ this.searchVenue.distance }}
+          </ion-label>
+          <ion-item>
+            <ion-range min="0" max="70"step="10" snaps="true" [(ngModel)]="this.venuSearchModel.distance" name="distance">
+            <ion-label range-left class="small-text">0</ion-label>
+            <ion-label range-right>70</ion-label>
+            </ion-range>
+        </ion-item>
+
+        
+	    <!-- <ion-grid>
+          <ion-row>
+            <ion-col col-2></ion-col>
+            <ion-col col-8>
+	            <div *ngIf="error" class="alert alert-danger">{{error}}</div>
+		       <button ion-button color="light" type="submit" round class="login-btn" [disabled]="!findVenueForm.form.valid" block>Search</button>
+            </ion-col>
+            <ion-col col-2></ion-col>
+          </ion-row>
+        </ion-grid> -->
+    </ion-list>
+		</form>
+</ion-content>
+<ion-footer class="venu-footer">
+		<ion-toolbar (click)="search()">
+				<ion-title class="search-btn">Search</ion-title>
+		</ion-toolbar>
+</ion-footer>

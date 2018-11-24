@@ -1,0 +1,23 @@
+<ion-header>
+ <ion-navbar>
+    <ion-title><span class="back" (click)="back()"><ion-icon name="arrow-back"></ion-icon></span>choose family from database</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+<div  class="search_member">
+		
+			<label><b>Name</b></label>
+			<ion-searchbar placeholder="Search Name" type="text" name="memberName" id="memberName" [(ngModel)]="this.memberName" (keyup)="getItems()" required ></ion-searchbar>
+
+
+	    	<ion-list class="auto_complete">
+	        	<ion-item  class="" *ngIf="this.showData && this.showData.length>0">
+	        		<p (click)="this.selectMember()">{{ this.showData }}</p>
+	        	</ion-item>
+	        </ion-list>
+	   
+
+		
+</div>
+</ion-content>

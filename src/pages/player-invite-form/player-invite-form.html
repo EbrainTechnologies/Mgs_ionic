@@ -1,0 +1,67 @@
+<!--
+  Generated template for the PlayerInviteFormPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>
+      <span class="back" (click)="back(ErrorbookingServicePage)"><ion-icon name="arrow-back"></ion-icon></span> Coimbatore,TN
+    </ion-title>
+  </ion-navbar>
+
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-item>
+    <ion-avatar item-end>
+      <img src="assets/imgs/1.jpg">
+    </ion-avatar>
+    <span class="title_sub">You are inviting:</span>
+    <h2 class="text-color" color="green-text">Senthil Gurusamy</h2><br/>
+    <h5>Unranked Player</h5>
+    <p class="text-color city_name">Coimbatore,TN</p>
+  </ion-item>
+  <div class="date_detail">
+    <p>
+      <b>To Play:</b>&nbsp;&nbsp;<span>Tennis</span>
+    </p>
+
+    <ion-item>
+      <ion-label stacked>Start Date</ion-label>
+      <ion-datetime displayFormat="MMM DD YYYY"></ion-datetime>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Start Time</ion-label>
+      <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A"></ion-datetime>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>End Time</ion-label>
+      <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A"></ion-datetime>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Proposed Venue</ion-label>
+      <ion-select [(ngModel)]="demoSelectBox">
+        <ion-option value="1">Coimbatore</ion-option>
+        <ion-option value="2">Hosur</ion-option>
+        <ion-option value="3">Chennai</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Comments</ion-label>
+      <ion-textarea row="5" value="" placeholder="Please write about any cost consideration or dress code here." [(ngModel)]="comments"></ion-textarea>
+    </ion-item>
+
+    <div padding text-center>
+      <button ion-button round class="green_btn" (click)="requestlist(RequestPlayerListPage)">Invite</button>
+    </div>
+  </div>
+</ion-content>

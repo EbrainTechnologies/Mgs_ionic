@@ -1,0 +1,27 @@
+page-menu {
+.toolbar-background-md{background: color($colors, header) !important;}
+.toolbar-title-md{color: color($colors,header-text) !important}
+.bar-button-default-md, .bar-button-clear-md-default, .bar-button-md-default{color: color($colors,header-text)}
+.bar-button-default-md:hover:not(.disable-hover), .bar-button-clear-md-default:hover:not(.disable-hover), .bar-button-md-default:hover:not(.disable-hover){color: color($colors,header-text)}
+/*.item-md{background-color: #ddd !important}*/
+.menu_content .custom-icon{background-color: transparent;color: #fff;}
+.menu_content{background-color:#252525;}
+button {background-color:none !important;}
+.menu_content .item-md{background:none !important; color:#fff;}
+.menu_bg{background:#252525;}
+.profilr_pic ion-icon{font-size:90px; color:#fff;}
+.profilr_pic{text-align:center; color:#fff; padding:15px 0;}
+.profilr_pic h3{font-size:20px; margin:5px;}
+.footer-tool-bar-hidden .tabbar.show-tabbar{ opacity: 0; display: none;}
+.mt-image ion-icon{font-size:80px; color:#003034;}
+ion-avatar img, ion-thumbnail img {
+    display: block;
+    margin: auto;
+    border-radius: 50%;
+     height: 100px; 
+     width: 100px;
+}
+.scroll-content{
+	margin-top:107px;
+}
+}

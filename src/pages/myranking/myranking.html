@@ -1,0 +1,60 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title><span class="back" (click)="back(MyProfilePage)"><ion-icon name="arrow-back"></ion-icon></span>My Ranking</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <div class="select_sports">
+    <ion-label class="text-color">Select Sport</ion-label>
+    <ion-item  class="rounded">
+      <ion-select name="sportId" id="sportId" [(ngModel)]="this.sportId" (ngModelChange)="sportChange()"  required>
+        <ion-option  *ngFor="let item of this.userSports" value="{{ item.sportId }}">{{ item.sportName }}</ion-option>
+      </ion-select>
+    </ion-item>
+  </div>
+ 
+  <!-- golf list starts-->
+  <div class="golf_list">
+    <ion-list>
+      <ion-item *ngFor="let item of this.sportLists" [hidden]="this.sportId!=item.sportId">
+        <p><span> <b>Sport Name :</b> </span>{{ item.sportName }}</p>
+        <span clear><span> <b>Rank: </b> </span>{{ item.rankLevelName }}</span>
+        <ion-icon class="star_icon" name="star" item-end></ion-icon>
+      </ion-item>
+    </ion-list>
+  </div>
+  <!-- golf list ends-->
+  
+
+   <!-- <ion-list>
+       <ion-item *ngFor="let item of this.sportLists">
+        <p>
+        <span> <b>Sport Name :</b> </span>{{ item.sportName }}&nbsp;
+        <span> <b>Rank: </b> </span>{{ item.rankLevelName }}    
+        </p>
+        </ion-item>
+  </ion-list>
+ -->
+
+
+  <!-- Tennis list starts
+  <div class="tennis_list">
+    <ion-list>
+      <ion-item >
+        <p>USTA-NTRP</p>
+        <div><b clear class="text-color">Ranking:</b> <span>1</span></div>
+        <ion-icon class="star_icon" name="star" item-end></ion-icon>
+      </ion-item>
+    </ion-list>
+  </div>-->
+  <!-- golf list ends-->
+
+  <ion-fab right bottom>
+      <button ion-fab class="rankaddbtn" (click)="addrankpage()"><ion-icon name="add"></ion-icon></button>
+  </ion-fab>
+</ion-content>

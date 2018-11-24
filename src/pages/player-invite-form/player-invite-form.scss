@@ -1,0 +1,68 @@
+page-player-invite-form {
+
+    .toolbar-background-md{
+        background: color($colors, header) !important;
+        }
+    .toolbar-title-md{
+        color: color($colors,header-text) !important;
+        }
+
+    .text-color{
+        color:color($colors,green-text);
+        }
+    span.back{
+        font-size:18px; padding-right:20px; 
+        }	
+    .item-md{
+        padding-left:0px;
+        }
+    .item-md ion-avatar ion-img, .item-md ion-avatar img{
+        width:75px; height:75px;
+        }
+    .item-md p{
+        font-size:14px;
+        }
+    .item-md h2{
+        font-weight:bold; font-size:2.8rem; white-space:normal;
+        }
+    .date_detail{
+        margin-top:15px;
+        }
+    .date_detail label{
+        float:left; color:#333333; font-weight:bold;
+        }
+    .date_detail p{
+        float:left; margin-top:5px !important;
+        }
+    .title_sub{
+        font-size:14px; margin-bottom:20px;
+        }
+    h5{
+        font-size:17px !important; color:#ffa000;
+        }
+    .city_name{
+        font-size:13px !important; margin-top:5px;
+        }
+    .date_detail .item-md{
+        margin-bottom:10px;
+        }
+    .date_detail .item-md.item-block .item-inner{
+        border-bottom-color:#02504c;
+        }
+    .datetime-md{
+        color:#263238;
+        }
+    .green_btn{
+        background-color:#02504c; color:#fff; padding:20px 40px;
+        }
+    .ion-select{
+        max-width:100%; width:100%;
+        }
+    .datetime-md{
+        width:100%;
+        }
+    .item-md.item-block .item-inner{
+        padding-right:0px;
+        }
+
+}

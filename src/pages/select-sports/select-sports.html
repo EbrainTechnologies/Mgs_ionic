@@ -1,0 +1,51 @@
+<!--
+  Generated template for the SelectSportsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    
+    <ion-title>
+    	<span class="back" (click)="back(MyProfilePage)"><ion-icon name="arrow-back"></ion-icon></span>
+    	Sports You Play</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+	<ion-list>
+	  <ion-label class="text-color">Primary Sport</ion-label>
+	   <ion-item class="text-color" *ngIf="this.primarySports">
+	    <ion-icon  item-start><img src="{{ this.startpoint }}upload/viewsportpicture/{{ this.primarySports.sportId }}"></ion-icon>
+	     {{ this.primarySports.sportName  }}
+	  </ion-item> 
+
+	  <ion-label class="text-color">Secondary Sport( {{ this.secondarySports.length }} )</ion-label>
+	  <ion-item>
+	    <p class="text-color" *ngIf="this.secondarySports && this.secondarySports.length<=0">No other Secondary Sports</p>
+	  </ion-item>
+	  <ion-item class="text-color" *ngFor="let item of this.secondarySports" >
+	    <ion-icon  item-start> <img src="{{ this.startpoint }}upload/viewsportpicture/{{ this.item.sportId }}"></ion-icon>
+	      {{ item.sportName  }}
+	      <ion-icon  item-end> <a href="javascript:void(0)" (click)="changePrimary(item)"><ion-icon ios="ios-flag" md="md-flag"></ion-icon></a>
+	      <a href="javascript:void(0)" (click)="deleteSport(item)" ><ion-icon ios="ios-trash" md="md-trash"></ion-icon></a>
+          </ion-icon>
+	  </ion-item>
+
+	  <ion-label class="text-color" >Add more Sport(s)</ion-label>
+	  <ion-item class="text-color" *ngFor="let item of this.sportLists" >
+	    <ion-icon  item-start> <img src="{{ this.startpoint }}upload/viewsportpicture/{{ item.bgImage }}"></ion-icon>
+	      {{ item.name  }}
+     
+      <ion-icon  item-end> <a href="javascript:void(0)" (click)="addSport(item)"><ion-icon ios="ios-add-circle" md="md-add-circle"></ion-icon></a>
+	  </ion-icon>
+	   </ion-item>
+
+	</ion-list>
+
+</ion-content>

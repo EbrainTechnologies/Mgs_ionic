@@ -1,0 +1,61 @@
+<ion-content padding class="registration layer">
+  <img  class="logo" src="assets/imgs/logo2.png" >
+  <div class="forms">
+      <form  autocomplete="off">
+          <ion-grid>
+          <ion-row>
+            <ion-col>
+              <ion-list >
+
+                <ion-item class="input-background firstname">
+                  <ion-input placeholder="First name" name="firstName" id="registerField" type="text" class="inputcolor" required  clearInput ></ion-input>
+                </ion-item>
+
+                <ion-item class="input-background lastname">
+                  <ion-input placeholder="Last name" name="lastName" id="registerField" type="text" class="inputcolor" required  clearInput ></ion-input>
+                </ion-item>
+
+                <ion-item class="input-background username">
+                  <ion-input placeholder="Email" name="username" id="registerField" type="text" class="inputcolor" required  clearInput ></ion-input>
+                </ion-item>
+
+                <ion-item class="input-background dob">
+                  <ion-input placeholder="DOB" name="password username" id="passwordField" type="password" class="inputcolor" required  clearInput></ion-input>
+                </ion-item>
+
+                <ion-item class="input-background password">
+                  <ion-input placeholder="Password" name="password" id="registerField" type="text" class="inputcolor" required  clearInput ></ion-input>
+                </ion-item>
+
+                <ion-item class="input-background re-password">
+                  <ion-input placeholder="Re-type password" name="repassword" id="registerField" type="text" class="inputcolor" required  clearInput ></ion-input>
+                </ion-item>
+
+                <ion-item class="input-background location">
+                  <ion-input placeholder="Location" name="location" id="registerField" type="text" class="inputcolor" required  clearInput ></ion-input>
+                </ion-item>
+
+                <ion-item class="input-background reference">
+                  <ion-input placeholder="reference" name="Reference" id="registerField" type="text" class="inputcolor" required  clearInput ></ion-input>
+                </ion-item>
+
+              </ion-list>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+          <ion-col>
+      
+          </ion-col>
+            <ion-col >
+              <div *ngIf="error" class="alert alert-danger">{{error}}</div>
+              <button ion-button color="light" round type="submit" class="registration-btn"> Sign Up
+              </button>
+            </ion-col>
+            <ion-col>
+      
+            </ion-col>
+          </ion-row>
+          </ion-grid>
+        </form>
+  </div>
+</ion-content>

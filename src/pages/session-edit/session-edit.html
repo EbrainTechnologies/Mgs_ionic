@@ -1,0 +1,65 @@
+
+<ion-header>
+
+    <ion-navbar>
+        <ion-title>Match Details</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+<ion-content detail>
+    <ion-card  *ngIf="organizer != null">
+        <ion-item class="session-heading">
+            
+            <div class="session-heading-left">
+                <ion-avatar item-start>
+                    <img [src]="organizer.userProfileImage" *ngIf="organizer?.userProfileImage != null" (error)="organizer.userProfileImage = null"/>
+                    <ion-icon class="session-heading-avatar" ios="ios-contact" md="md-contact" *ngIf="organizer?.userProfileImage == null"></ion-icon>
+                </ion-avatar>
+                <div> {{organizer?.firstName}} </div>
+            </div>
+
+            <div class="session-heading-right">
+                <div>
+                    <img src="{{imageBaseUrl}}upload/viewsportpicture/{{session?.sportid}}">
+                </div>
+                <ion-badge color="primary">{{session?.playTypeName}}</ion-badge>
+            </div>            
+
+            <div class="session-heading-main">
+                <span><ion-icon name="calendar"></ion-icon> {{appContext.getFormattedDate(session?.startDate)}}</span>
+                <br/>
+                <span><ion-icon name="calendar"></ion-icon> {{appContext.getFormattedTime(session?.startDate)}}</span>
+                <br/>
+                <span class="detail selectable" (click)="appContext.openMap(session.address?.latitude, session.address?.longitude)">
+                    <ion-icon name="pin"></ion-icon> 
+                    {{ session?.venueName != null && session?.venueName.toLowerCase() != 'unknown'? session.venueName + ', ': '' }}
+                    {{ session?.address?.name != null?session?.address?.name + ', ': ''}}
+                    {{ session?.address?.city}}, {{session?.address?.statecode}}
+                </span>
+                
+            </div>
+        </ion-item>
+    </ion-card>
+
+    <ion-card>
+        <ion-list>
+            <ion-item>
+                <ion-label stacked>Registration Close Date Time<span class="red">*</span> </ion-label>
+                <ion-datetime displayFormat="{{appContext.getDateTimeFormat()}}" pickerFormat="{{appContext.getDateTimeFormat()}}" [(ngModel)]="sessionClosingOn" class="rounded"></ion-datetime>
+            </ion-item>
+            <ion-item>
+                <ion-label stacked>Additional Info</ion-label>
+                <ion-textarea row="5" value="" placeholder="Enter Eligibility criteria, Payment details, etc." [(ngModel)]="comments"></ion-textarea>
+            </ion-item>
+            <ion-item></ion-item>
+        </ion-list>
+    </ion-card>
+
+    <ion-footer>
+        <ion-toolbar  (click)="saveSession($event)">
+            <ion-title>Save</ion-title>
+        </ion-toolbar>
+    </ion-footer>
+</ion-content>
+

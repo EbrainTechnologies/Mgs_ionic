@@ -1,0 +1,26 @@
+<ion-header>
+		<ion-navbar>
+			<button ion-button menuToggle>
+				<ion-icon name="menu"></ion-icon>
+			</button>
+			<ion-title>Nearby Venue</ion-title>
+		</ion-navbar>
+	</ion-header>
+
+<ion-content listing>
+	<ion-card *ngFor="let item of venueInfo"  >
+		<ion-item (click)="venueGroundInfo(item)">
+		<b class="item-heading">{{ item.name }}</b>
+		<div class="item-left float-left">
+			<div >{{ item.venueSurface }}</div>
+			<div *ngIf = "item.address.city != null && item.address.city != ' '">
+			  {{ item.address.city }},{{ item.address.statecode }}
+			</div>
+		</div>
+		<span class="google_map"><img src="assets/imgs/googlemap.png"/></span>
+	</ion-item>
+	</ion-card>
+</ion-content>
+
+
+

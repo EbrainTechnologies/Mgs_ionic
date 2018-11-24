@@ -1,0 +1,97 @@
+import { Component, OnInit } from '@angular/core';
+import { App, IonicPage, NavController, NavParams } from 'ionic-angular';
+import { LoginPage } from '../login/login';
+import { ToastController } from 'ionic-angular';
+import { HomeServiceProvider } from '../../providers/auth-service/home-service';
+import { LoadingProvider } from '../../providers/loading/loading';
+@IonicPage()
+@Component({
+  selector: 'page-home',
+  templateUrl: 'home.html'
+})
+export class HomePage implements OnInit {
+
+  userData = { "username": "dinesh2", "password": "dinesh", 'action': 'login' };
+
+  public list: any = {
+    title: '',
+    players_near_you: '',
+    image: '',
+    page: ''
+  };
+  public errorMessage: any;
+
+  constructor(public app: App, public navCtrl: NavController, public homeService: HomeServiceProvider, public loadingCtrl: LoadingProvider) {
+
+  }
+
+  ngOnInit() {
+    let getloadingcontroller = this.loadingCtrl.presentWithGif2();
+    this.homeService.postData(this.userData, 'home')
+      .subscribe(
+        response => {
+          this.loadingCtrl.dismiss();
+          this.list = response;
+          console.log(response);
+          if (this.list) {
+
+            this.list.message = 1
+            if (this.list.message == 1)
+              console.log(this.list.tiles);
+          }
+          else {
+            // something went wrong
+          }
+        },
+        error => this.errorMessage = <any>error);
+  }
+
+
+
+
+  goToDetail(page) {
+    console.log(page);
+    let getloadingcontroller = this.loadingCtrl.presentWithGif3();
+    if (page == 'find-venue')
+      this.navCtrl.setRoot('FindVenuePage');
+    this.loadingCtrl.dismiss();
+    if (page == 'find-ranking')
+      this.navCtrl.setRoot('FindRankingPage');
+    this.loadingCtrl.dismiss();
+    if (page == 'events' || page == 'upcoming-events')
+      this.navCtrl.push('EventsPage');
+    this.loadingCtrl.dismiss();
+    if (page == 'access-deals')
+      this.navCtrl.setRoot('AccessdealsPage');
+    this.loadingCtrl.dismiss();
+    if (page == 'featured-players')
+      this.navCtrl.setRoot('FeaturedPlayersPage');
+    this.loadingCtrl.dismiss();
+    if (page == 'featured-clubs')
+      this.navCtrl.setRoot('FeaturedClubsPage');
+    this.loadingCtrl.dismiss();
+    if (page == 'update-profile')
+      this.navCtrl.setRoot('MyProfilePage');
+    this.loadingCtrl.dismiss();
+    if (page == 'future-services')
+      this.navCtrl.setRoot('UpcomingServicePage');
+    this.loadingCtrl.dismiss();
+  }
+
+  logout() {
+    localStorage.removeItem('userInfo');
+    localStorage.removeItem('userRegisterDetail');
+    const root = this.app.getRootNav();
+    root.setRoot('LoginPage');
+    console.log('log out');
+  }
+
+  findplayer() {
+    this.navCtrl.setRoot('NearByPlayerPage');
+  }
+
+  hostSession() {
+    this.navCtrl.setRoot('SessionPage');
+  }
+
+}

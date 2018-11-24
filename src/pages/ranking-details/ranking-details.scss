@@ -1,0 +1,26 @@
+page-ranking-details {
+
+ span.back {font-size: 18px; padding-right: 20px;}
+
+ .banner{background:#000;}
+ .banner img{opacity:0.5;}
+
+ .banner_text .item-md ion-avatar {min-width: auto; min-height: auto; border-radius: 48px;
+    vertical-align: middle; text-align: center; padding: 25px 22px; font-size:20px; font-weight:bold; color:#02504c; margin-top:20px; background:#fff; border:2px solid #02504c;}
+    h2{font-size:22px !important; color:#fff;}
+    .text-color{color:color($colors,green-text);}
+    .sub_title{font-size:16px; font-weight:500; margin-top:10px;}
+    span.heart_icon ion-icon{font-size:30px; line-height:0px; vertical-align:top; color:#fff; margin-top:-7px;}
+    .banner_text .item-md{background:none; margin-top:-50px;}
+    .banner_text .item-inner{margin-top:-10px;}
+    .banner_text .item-md.item-block .item-inner{border-bottom:none;}
+    .inner_text{height:110px; text-align:center; padding-top:10px; border-radius:5px;}
+    .inner_text p{color:#fff; font-size:13px;}
+    .inner_text b{width:100%; font-size:22px; line-height:30px; color:#fff;}
+    .green_bg{background:#197709;}
+    .red_bg{background:#d42507;}
+    .blue_bg{background:#2196f3;}
+    .inner_text .button-md{font-size:11px; height:auto; padding:5px 10px; text-transform: capitalize;}
+
+    .header_btn{font-size:15px; height:auto; padding:5px 10px; color:#02504c; float:right;}
+}

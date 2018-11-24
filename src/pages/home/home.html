@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <!--  <ion-title>Home <button ion-button color="light" class="logout-btn" (click)="logout()" round>Log Out</button></ion-title> -->
+    <ion-title>
+      Home
+      <span (click)="logout()" class="rgt" style="float: right;">
+        <ion-icon ios="ios-log-out" md="md-log-out"></ion-icon>
+      </span>
+    </ion-title>
+
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="card-background-page">
+
+
+  <!-- <button ion-button secondary menuToggle>Toggle Menu</button> -->
+  <ion-grid>
+    <ion-row>
+      <ion-col col-6 *ngFor="let item of this.list; let i =index " >
+        <ion-card (click)="goToDetail(item.cardType)">
+          <img src="{{ startPoint }}{{ item.cardImageUrl }}" />
+          <div class="card-title">{{ item.cardTitle }}</div>          
+        </ion-card>
+      </ion-col>
+      <ion-col col-6>
+          <ion-card (click)="fplayer(FeaturedPlayersPage)">
+            <img src="assets/imgs/featured-players.jpg"/>
+            <div class="card-title  small_title">Featured Players</div>
+          </ion-card>
+        </ion-col>
+
+        
+
+     <!--  <ion-col col-12>
+        <ion-card (click)="findplayer(NearByPlayerPage)">
+          <img src="assets/imgs/find-players.jpg" />
+          <div class="card-title">Find Players</div>
+          <div class="card-subtitle">
+            <button ion-button small round>11 Players near you</button>
+          </div>
+        </ion-card>
+      </ion-col>
+      <ion-col col-6 *ngFor="let item of this.list">
+        <ion-card (click)="goToDetail(item.cardTitle)">
+          <img src="{{ item.cardImageUrl }}" />
+          <div class="card-title small_title">{{ item.cardTitle }}</div>
+        </ion-card>
+      </ion-col> -->
+     
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

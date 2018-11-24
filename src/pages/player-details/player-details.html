@@ -1,0 +1,32 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>
+    	<span (click)="back(PlayerDetailsPage)"><ion-icon name="arrow-back"></ion-icon></span>
+    player Details</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+	<ion-item>
+	    <h2 class="text-color">{{ this.playerInfo.firstName }} {{ this.playerInfo.lastName }}</h2>
+	    <p class="text-color">{{ calculateAge(this.playerInfo.birthDate) }} Years old</p>
+	    <ion-avatar item-end>
+	      <img src="{{this.startPoint}}upload/viewuserimage/{{this.playerInfo.userid}}">
+	    </ion-avatar>
+	</ion-item>
+	<ion-item class="detail">
+	    <b>Bio</b>
+	    <p class="text-color"> {{ this.playerInfo.externalReference }} </p><br/>
+	    <b>Interested Sports</b>
+	    <p class="text-color">Golf</p><br/>
+	    <b>Ranking</b>
+	    <p class="text-color">Unranked,Intermediate - Golf</p>
+	    <p class="text-color">Unranked,Intermediate - Tennis</p>
+	</ion-item>
+
+
+</ion-content>

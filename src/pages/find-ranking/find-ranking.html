@@ -1,0 +1,51 @@
+<!--
+  Generated template for the FindRankingPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header id="header-bg">
+
+  <ion-navbar>
+    <ion-title>
+    	<span class="back" (click)="back(HomePage)"><ion-icon name="arrow-back"></ion-icon></span>
+    	Search Parameters
+    	<!-- <span class="text-end" >Save</span> -->
+    </ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+ <form #findRankingForm="ngForm" (ngSubmit)="findRank()" autocomplete="off">
+	 <ion-list>
+	  <ion-label>First Name *</ion-label>  	
+	  <ion-item class="rounded">
+	    <ion-input type="text"></ion-input>
+	  </ion-item>
+
+	  <ion-label>Last Name *</ion-label>
+	  <ion-item class="rounded">
+	    <ion-input type="text"></ion-input>
+	  </ion-item>
+
+	  <ion-label>Location *</ion-label>
+	  <ion-item class="rounded">
+	    <ion-input type="text"></ion-input>
+	  </ion-item>
+
+	  <div padding>
+	   <div *ngIf="error" class="alert alert-danger">{{error}}</div>
+       <button ion-button color="light" type="submit" round class="login-btn" [disabled]="!findRankingForm.form.valid" block>Search</button>
+      </div>
+
+  	</ion-list>
+
+	 
+ </form>
+
+
+</ion-content>
+

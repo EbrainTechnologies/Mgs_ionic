@@ -1,0 +1,151 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>Match Details</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content detail>
+    <ion-card *ngIf="organizer != null">
+        <ion-item class="session-heading">
+
+            <div class="session-heading-left">
+                <ion-avatar item-start>
+                    <img [src]="organizer.userProfileImage" *ngIf="organizer?.userProfileImage != null" (error)="organizer.userProfileImage = null"
+                    />
+                    <ion-icon class="session-heading-avatar" ios="ios-contact" md="md-contact" *ngIf="organizer?.userProfileImage == null"></ion-icon>
+                </ion-avatar>
+                <div> {{organizer?.firstName}} </div>
+            </div>
+
+            <div class="session-heading-right">
+                <div>
+                    <img src="{{imageBaseUrl}}upload/viewsportpicture/{{session?.sportid}}">
+                </div>
+                <ion-badge color="primary">{{session?.playTypeName}}</ion-badge>
+            </div>
+
+            <div class="session-heading-main">
+                <span><ion-icon name="calendar"></ion-icon> {{appContext.getFormattedDate(session?.startDate)}}</span>
+                <br/>
+                <span><ion-icon name="clock"></ion-icon> {{appContext.getFormattedTime(session?.startDate)}}</span>
+                <br/>
+                <span class="detail selectable" (click)="appContext.openMap(session.address?.latitude, session.address?.longitude)">
+                    <ion-icon name="pin"></ion-icon> 
+                    {{ session?.venueName != null && session?.venueName.toLowerCase() != 'unknown'? session.venueName + ', ': '' }}
+                    {{ session?.address?.name != null?session?.address?.name + ', ': ''}}
+                    {{ session?.address?.city}}, {{session?.address?.statecode}}
+                </span>
+
+            </div>
+        </ion-item>
+    </ion-card>
+
+    <ion-card *ngIf="organizer != null">
+        <ion-item>
+            <p>
+                <span class="detail-left label">Reg. Closes </span>
+                <span class="detail-right">{{appContext.getFormattedDateTime(session?.registrationClosAt)}}</span>
+            </p>
+
+            <p>
+                <span class="detail-left label">Max. Participants </span>
+                <span class="detail-right">{{session?.maxParticipantsCount}}</span>
+            </p>
+
+            <p>
+                <span class="detail-left label">Match Duration </span>
+                <span class="detail-right">{{session?.duration}} Hr{{session?.duration > 1?'s':''}}</span>
+            </p>
+
+            <p *ngIf="session.venueName != null">
+                <span class="detail-left label">Venue </span>
+                <span class="detail-right">{{session?.venueName}}</span>
+            </p>
+
+            <p *ngIf="session.rankName != null">
+                <span class="detail-left label">Ranking </span>
+                <span class="detail-right">{{session?.rankName}}</span>
+            </p>
+
+            <p *ngIf="session.rankName != null">
+                <span class="detail-left label">Value </span>
+                <span class="detail-right">{{session?.rankingLevelFrom}} - {{session?.rankingLevelTo}}</span>
+            </p>
+
+            <p *ngIf="session.ageLimit == 1">
+                <span class="detail-left label">Age </span>
+                <span class="detail-right">{{session?.ageStart}} - {{session?.ageEnd}}</span>
+            </p>
+
+            <p *ngIf="session.comments != null">
+                <span class="detail-left label">Additional Info </span>
+                <span class="detail-right">{{session?.comments}}</span>
+            </p>
+        </ion-item>
+    </ion-card>
+
+    <ion-card *ngIf="organizer != null">
+        <ion-card-header>
+            Registered players
+        </ion-card-header>
+    </ion-card>
+
+    <ion-card class="regitered-players" *ngIf="organizer != null">
+
+        <ion-list>
+            <ion-item>
+                <ion-avatar item-start>
+                    <img [src]="organizer.userProfileImage" *ngIf="organizer?.userProfileImage != null" (error)="organizer.userProfileImage = null"
+                    />
+                    <ion-icon class="session-heading-avatar" ios="ios-contact" md="md-contact" *ngIf="organizer?.userProfileImage == null"></ion-icon>
+                </ion-avatar>
+                <p>{{organizer?.firstName}} {{organizer?.lastName}} <b>(Host)</b></p>
+                <p>{{organizer?.phoneNumber}}</p>
+            </ion-item>
+
+        </ion-list>
+    </ion-card>
+
+    <ion-card *ngFor="let participant of sessionBookingList" class="regitered-players">
+        <ion-list>
+            <ion-item>
+                <ion-avatar item-start>
+                    <img [src]="participant.userProfileImage" *ngIf="participant?.userProfileImage != null" (error)="participant.userProfileImage = null"
+                    />
+                    <ion-icon class="session-heading-avatar" ios="ios-contact" md="md-contact" *ngIf="participant?.userProfileImage == null"></ion-icon>
+                </ion-avatar>
+                <p>{{participant?.firstName}} {{participant?.lastName}}</p>
+                <p>{{participant?.phoneNumber}}</p>
+            </ion-item>
+        </ion-list>
+    </ion-card>
+
+    <ion-fab right bottom *ngIf="orgainizerView">
+        <button ion-fab mini>
+            <ion-icon name="more"></ion-icon>
+        </button>
+        <ion-fab-list side="top">
+            <button ion-fab (click)="edit()"><ion-icon name="create"></ion-icon></button>
+        </ion-fab-list>
+    </ion-fab>
+
+    <ion-footer>
+        <ion-toolbar (click)="cancel()" *ngIf="orgainizerView">
+            <ion-title>Cancel the Match</ion-title>
+        </ion-toolbar>
+
+        <ion-toolbar (click)="register()" *ngIf="!orgainizerView && prevalidationPassed">
+            <ion-title>Register</ion-title>
+        </ion-toolbar>
+        <ion-toolbar class="message" *ngIf="!orgainizerView && prevalidationFailed && !withdrawFlag">
+            {{validationMessage}}
+        </ion-toolbar>
+        <ion-toolbar (click)="cancelRegistration()" *ngIf="!orgainizerView && prevalidationFailed && withdrawFlag">
+            <ion-title>Withdraw</ion-title>
+        </ion-toolbar>
+        <ion-toolbar *ngIf="!orgainizerView && !prevalidationPassed && !prevalidationFailed">
+            &nbsp;
+        </ion-toolbar>
+    </ion-footer>
+
+</ion-content>

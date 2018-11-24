@@ -1,0 +1,26 @@
+page-invitefriendspage {
+    .inputtext{border: 1px solid #003034; border-radius: 50px;}
+    ion-slide.swiper-slide {align-items: flex-start;}
+    .contentpage{float: left}
+    
+    .accordion-list { height: 100%;}
+    .invitepara{font-size: 12px;float: left;}
+
+    /* preaveen css */
+    .top_section{width:100%;}
+    .top_section h4{font-size:16px; margin-bottom:5px;}
+    .top_section p{margin-top:0px; font-size:13px;}
+    .text-color{color:color($colors,green-text);}
+    .select_all{text-align:right; margin-bottom:15px;}
+    .contact_list{border:1px solid #003034; display:inline-block; width:100%; padding:10px 15px 0 0;}
+    .list-md{margin-top:0px;}
+    .checkbox-md .checkbox-checked .checkbox-inner{top:2px; left:7px; height:13px; width:7px;}
+    .checkbox-md .checkbox-icon{width:25px; height:25px;}
+    .select_all .item-md.item-block .item-inner{border-bottom:none;}
+    .checkbox-md .checkbox-icon{border-color:#003034;}
+    .checkbox-md-dark .checkbox-checked{background-color:#003034;}
+
+    .share_page p{border-bottom:1px dotted #333; padding-bottom:7px; width:100%; font-weight:bold; text-align:left; margin-bottom:5px;}
+     .share_page a{font-size:13px; color:#003034;}
+     .fileupload{font-size: 50px; color:#003034;}
+}

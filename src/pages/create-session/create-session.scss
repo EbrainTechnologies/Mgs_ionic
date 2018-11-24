@@ -1,0 +1,63 @@
+@import '../step-segment.scss';
+@import '../detail.scss';
+
+page-create-session {
+
+    .sport-option {
+        float: left;
+        margin-left: 20px;
+        cursor: pointer;
+    }
+    .sport-option .img-container {
+        border: 1px solid #000000;
+        border-radius: 50%;
+        position: relative;
+        padding: 8px 10px;
+        max-width: 65px;
+        left: 50%;
+        transform: translate(-50%);
+    }
+
+    .sport-option .selected-sport {
+        background: #04a504;
+    }
+    .sport-option .non-selected-sport {
+        opacity: 0.4;
+    }
+    .sport-option .sport-img {
+        height: 40px;
+        width: 40px;
+    }
+
+    .location-label {
+        min-height: 31px;
+    }
+    .location-label .item-inner {
+        border-bottom: 0px;
+    }
+
+    .location-input ion-label
+    {
+        border: 1px solid #000000;
+        padding: 12px!important;
+        border-radius: 20px;
+        margin: 0px;
+    }    
+   
+    .location-input ion-label,
+    .location-input input
+    {
+        margin: 0px;
+    }
+
+    [detail] .scroll-content {
+        background-color: #ffffff;
+    }
+
+    [detail] ion-slides.sport-image {
+        height: 100%;
+    }
+
+}
+
+

@@ -1,0 +1,42 @@
+page-login {
+.login {
+    background: url("../assets/imgs/1.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+}
+.layer {
+    box-shadow: inset 0 0 0 1000px rgba(111, 52, 29, 0.61);
+    width: 100%;
+    height: 100%;
+}
+.input-background{
+  background: transparent;
+}
+.inputcolor ::placeholder {color: white !important}
+.inputcolor{color: white}
+.logo{
+  width: 50%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+}
+.forms{
+  margin-top:50px;
+}
+.inputcolor{
+  color: white !important;
+}
+.label-md{font-weight:bold; color:#fff; margin-bottom:0;}
+.text-input-md{margin:5px 8px;}
+.login-btn{text-align: center;width: 100%;}
+.mt20{margin-top:20px;}
+p.bottom_text{ width:100%; text-align:center; color:#fff; font-size:13px; margin:0 auto;}
+a{color:#fff;}
+.forgot_psw a{display:block;; text-align:center;  font-size:13px; margin-top:5px;}
+
+.item-md{padding:0px;}
+.item-input .label-md, .item-select .label-md, .item-datetime .label-md{color:#fff; font-weight:500; font-size:14px;}
+}
+

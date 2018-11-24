@@ -1,0 +1,40 @@
+<ion-header>
+<ion-navbar>
+      <button ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+        </button>
+    <ion-title>Favourite Players</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="featured-players">
+	<ion-grid>
+      <ion-row>
+        <ion-col col-6 no-padding *ngFor="let item of this.favoriteUsers" >
+
+          <div class="heart_icon">
+          <a href="javascript:void(0)"  (click)="markAsFav(item,0)" class="green-text">
+            <ion-icon ios="ios-heart" md="md-heart"></ion-icon>
+          </a>&nbsp;
+         </div>
+
+          <ion-card (click)="playerdetail(item)">
+			  <img src="{{this.startPoint}}upload/viewuserimage/{{item.userid}}">
+			  <ion-card-content>
+			    <ion-card-title class="text-color">
+			      {{ item.firstName }}  {{ item.lastName }}
+			      </ion-card-title>
+			  </ion-card-content>
+			</ion-card>
+        </ion-col>
+
+
+      </ion-row>
+  </ion-grid>
+</ion-content>
+
+
+<ion-content padding *ngIf="this.favoriteUsers && this.favoriteUsers.length<=0" >
+<p padding class="favocontent">You haven't marked any player as your favourite yet.You can track your favored players
+  ranking easily by marking them as favourite and viewing there </p>
+</ion-content>

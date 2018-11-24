@@ -1,0 +1,64 @@
+<!--
+  Generated template for the RankingDetailsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>
+    	<span class="back" (click)="back(ModifyResultPage)"><ion-icon name="arrow-back"></ion-icon></span> Ranking Details<button class="header_btn" ion-button color="light">UTR</button></ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content no-padding>
+	<div class="banner">
+		<img src="assets/imgs/garden.jpg"/>
+	</div>
+	<div class="banner_text">
+		<ion-item>
+		    <ion-avatar item-start>
+		      PK
+		    </ion-avatar>
+		    <h2>Praveen Kumar</h2>
+		    <p class="sub_title text-color">Avon, OH, US.</p>
+		    <span item-end class="heart_icon"> <ion-icon ios="ios-heart-outline" md="md-heart-outline"></ion-icon></span>
+		</ion-item>
+	</div>
+	<div class="">
+		
+		<ion-card>
+			<div class="padding">
+				<ion-item>
+					<ion-grid>
+					  <ion-row>
+					    <ion-col col-4>
+					    	<div class="inner_text green_bg text-center">
+					    		<p>Previous<br/> Ranking</p>
+					    		<b>7</b>
+					    	</div>
+					    </ion-col>
+					    <ion-col col-4>
+					    	<div class="inner_text red_bg text-center">
+					    		<p text-center>Current<br/> Ranking</p>
+					    		<b>7</b><br/>
+					    		<button ion-button color="light">Rated</button>
+					    	</div>
+					    </ion-col>
+					    <ion-col col-4>
+					    	<div class="inner_text blue_bg text-center">
+					    		<p text-center>Career<br/> Height</p>
+					    		<b>7</b>
+					    	</div>
+					    </ion-col>
+					  </ion-row>
+					</ion-grid>
+				</ion-item>
+			</div>
+		</ion-card>
+	</div>
+
+</ion-content>

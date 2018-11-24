@@ -1,0 +1,86 @@
+<!--
+  Generated template for the AddrankPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    
+    <ion-title><span class="back" (click)="back(MyrankingPage)"><ion-icon name="arrow-back"></ion-icon></span>Add Rank</ion-title>
+ 
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  	<form (ngSubmit)="addrankForm()">
+        <ion-list>
+            <ion-label class="text-color">Sport</ion-label>
+             <ion-item class="rounded">
+                <ion-select [(ngModel)]="sport" (ionChange)="onChange(sport)" name="sport" placeholder="Select Your Sport">
+                    <ion-option value="1">Golf</ion-option>
+                    <ion-option value="2">Tennis</ion-option>
+                   </ion-select>
+              </ion-item>
+    
+              <ion-label class="text-color">Region</ion-label>
+              <ion-item  class="rounded">
+                  <ion-select [(ngModel)]="region" name="region" placeholder="Select Your Region">
+                      <ion-option value="1">USA</ion-option>
+                      <ion-option value="2">LONDON</ion-option>
+                      <ion-option value="3">MELBOURNE</ion-option>
+                     </ion-select>
+              </ion-item>
+
+                 <ion-label class="text-color">Division  &nbsp;<span><ion-icon name="alert"></ion-icon></span></ion-label>
+                 <ion-item class="rounded">
+                    <ion-select [(ngModel)]="division" name="division" placeholder="Select Your Division">
+                        <ion-option value="1">Girls 18 Singles</ion-option>
+                        <ion-option value="2">Girls 16 Singles</ion-option>
+                        <ion-option value="3">Girls 14 Singles</ion-option>
+                       </ion-select>
+                  </ion-item> 
+  
+
+                  <ion-label class="text-color">Ranking Type</ion-label>
+                  <ion-item  class="rounded">
+                      <ion-select [(ngModel)]="rank" name="rank" placeholder="Select Your Rank Type">
+                          <ion-option value="1">GHIN</ion-option>
+                          <ion-option value="2">USGA</ion-option>
+                          <ion-option value="3">OWGR</ion-option>
+                   </ion-select>
+                  </ion-item>
+    
+                  <ion-label class="text-color">Your Ranking</ion-label>
+                  <ion-item class="rounded">
+                      <ion-input type="number" placeholder="Type Your Ranking"></ion-input>
+                  </ion-item>
+
+                  <ion-item>
+                      <ion-label class="text-color">Default &nbsp;<span><ion-icon name="alert"></ion-icon></span></ion-label>
+                      <ion-toggle [(ngModel)]="defaulttoggle" name="defaulttoggle"></ion-toggle>
+                  </ion-item>
+                  
+
+                  <ion-label class="text-color">Effective Date &nbsp;<span><ion-icon name="alert"></ion-icon></span></ion-label>
+                    <ion-item class="rounded">
+                      <ion-datetime displayFormat="MMM DD YYYY" placeholder="MMM DD YYYY"></ion-datetime>
+                    </ion-item>
+
+                    <ion-grid>
+                      <ion-row>
+                        <ion-col col-2></ion-col>
+                        <ion-col col-8>
+                          <button ion-button full color="light" round type="submit" class="save-btn"> Save </button>
+                        </ion-col>
+                        <ion-col col-2></ion-col>
+                      </ion-row>
+                    </ion-grid>
+          </ion-list>
+    
+
+      </form>
+  </ion-content>

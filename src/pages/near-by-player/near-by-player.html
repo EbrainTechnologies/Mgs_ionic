@@ -1,0 +1,43 @@
+<ion-header>
+
+	<ion-navbar>
+		<ion-title>
+			{{currentPlace}}
+		</ion-title>
+		<div class="header-icon" *ngIf="searchData?.sportId != null">
+			<img src="{{imageBaseUrl}}upload/viewsportpicture/{{searchData?.sportId}}">
+		</div>
+	</ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding listing>
+	<ion-list>
+		<p  text-center center>
+			<a href="javascript:void(0)" class="text-color modify-search" (click)="modifySearch()"><b>
+				<ion-icon name="search" class="modify-search"></ion-icon>
+					Modify Search</b></a>
+		</p>
+		<ion-card *ngFor="let item of this.players">
+			<ion-item >
+				<p>
+					<span class="item-left float-left" (click)="showPlayerInfo(item)">
+						<span class="highlight">{{ item.firstName }} {{ item.lastName }}, </span>{{ item.ageText }}
+						<br/>{{ item.rankingText }}
+						<br/>{{item.locationText }}
+					</span>
+					<span class="item-right float-right">
+						{{ item.distanceText }}<br/>
+						<button ion-button (click)="invitePlayer(item)" class="green_btn" *ngIf="userInfo.user.userid != item.userid">Invite</button>
+					</span>
+				</p>
+			</ion-item>
+		</ion-card>
+		<button ion-button full class="green_btn" (click)="loadPlayers(true)" *ngIf="showLoadMore">Load More</button>
+	</ion-list>
+
+	<p class="no_players text-colo" *ngIf="!this.players || this.players.length<=0">No players are available. Change your search
+		location.
+	</p>
+</ion-content>

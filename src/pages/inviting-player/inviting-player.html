@@ -1,0 +1,73 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      {{currentPlace}}
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content detail>
+  <div class="padding">
+    <ion-item>
+      <ion-avatar item-end>
+        <img src="{{imageBaseUrl}}upload/viewuserimage/{{player?.userid}}">
+      </ion-avatar>
+      <span class="title_sub">You are inviting:</span>
+      <h2 class="text-color" color="green-text">{{ player?.fullName }}</h2><br/>
+        <span class="orange">
+            {{ player?.rankingText }}
+        </span>
+      <p class="text-color city_name">{{ player?.locationText }}</p>
+    </ion-item>
+    <hr>
+
+    <ion-item no-border-bottom *ngIf="searchData != null">
+      <ion-label stacked>To Play (Select Sport) <span class="red">*</span></ion-label>
+      <ion-select [(ngModel)]="searchData.sportId">
+        <ion-option *ngFor="let sport of sports" value="{{sport.sportId}}"> {{sport.name}}</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item no-border-bottom>
+      <ion-label stacked>Start Date <span class="red">*</span></ion-label>
+      <ion-datetime min="{{minStartDate}}" max="{{maxStartDate}}" displayFormat="{{appContext.getDateTimeFormat()}}" pickerFormat="{{appContext.getDateTimeFormat()}}" [(ngModel)]="startsAt" (ngModelChange)="changeStartDate($event)" class="rounded"></ion-datetime>
+    </ion-item>
+
+    <ion-item no-border-bottom class="note">
+      <span> 
+          <ion-icon name="information-circle"></ion-icon>
+            Please select the start and end time. Duration should be within 2 hours.
+      </span>
+    </ion-item>
+
+    <ion-item no-border-bottom>
+      <ion-label stacked>Duration ({{duration}} hr{{duration>1?'s':''}}) <span class="red">*</span></ion-label>
+      <ion-range min="0" max="2" step="1" snaps="true" pin="true" [(ngModel)]="duration">
+        <ion-label range-left>1</ion-label>
+        <ion-label range-right>2</ion-label>
+      </ion-range>
+    </ion-item>
+
+    <ion-item no-border-bottom>
+      <ion-label stacked>Proposed Venue <span class="red">*</span> </ion-label>
+      <ion-input type="text" value="" [(ngModel)]="venueName"></ion-input>
+    </ion-item>
+    <ion-item no-border-bottom class="note">
+      <span> 
+          <ion-icon name="information-circle"></ion-icon>
+            Please enter the club, school or park where you like to play.
+      </span>
+    </ion-item>
+
+    <ion-item no-border-bottom>
+      <ion-label stacked>Comments</ion-label>
+      <ion-textarea row="5" value="" placeholder="Please write about any cost consideration or dress code here." [(ngModel)]="comments"></ion-textarea>
+    </ion-item>
+  </div>
+  <ion-footer>
+    <ion-toolbar (click)="validateAndInvitePlayer()">
+      <ion-title>Invite</ion-title>
+    </ion-toolbar>
+  </ion-footer>
+</ion-content>

@@ -1,0 +1,75 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Admission Payment</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content payment-admission>
+  <div class="payment-admission-forms">
+    <form autocomplete="off" *ngIf="paymentGatewayModel">
+      <ion-grid>
+        <ion-row class="row-spacing">
+          <ion-col col-sm-8 offset-sm-2>
+            <p style="font: bold">You are making a payment of {{event.entryFee}} {{event.currencyCode}} in admission fee related to one persion
+              registering for {{event.eventName}} event.
+            </p>
+          </ion-col>
+        </ion-row>
+        <ion-row class="row-spacing">
+          <ion-col col-sm-8 offset-sm-2>
+            <ion-label class="label">Cardholder Number*</ion-label>
+            <ion-item class="input-background payment-admission-form-input input-spacing">
+              <ion-input placeholder="Cardholder Name" [(ngModel)]="paymentGatewayModel.cardholderNumber" name="cardholderName" id="cardholder-name-"
+                type="text" class="inputcolor bordercolor" required clearInput></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <ion-row class="row-spacing">
+          <ion-col col-sm-8 offset-sm-2>
+            <ion-label color="label">Cardholder Name*</ion-label>
+            <ion-item class="input-background payment-admission-form-input input-spacing">
+              <ion-input placeholder="Card Number" [(ngModel)]="paymentGatewayModel.cardholderName" name="cardNumber" id="cardNumber" type="text"
+                class="inputcolor bordercolor" required clearInput></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <ion-row class="row-spacing exp-input-section">
+          <ion-col col-sm-4 offset-sm-2>
+            <ion-label>Exp. Mont*</ion-label>
+            <ion-item class="input-background  input-spacing exp-input">
+              <ion-input placeholder="MM" [(ngModel)]="paymentGatewayModel.expMonth" name="Exp. Month" id="cardExpDetail" type="text" class="inputcolor payment-admission-form-input exp-month bordercolor"
+                required clearInput>
+              </ion-input>
+            </ion-item>
+          </ion-col>
+          <ion-col col-sm-4>
+            <ion-label>Exp. Year*</ion-label>
+            <ion-item class="input-background  input-spacing exp-input">
+              <ion-input placeholder="YYYY" [(ngModel)]="paymentGatewayModel.expYear" name="Exp. Year" id="paymentField" type="text" class="inputcolor payment-admission-form-input bordercolor"
+                required clearInput>
+              </ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <ion-row class="row-spacing">
+          <ion-col col-sm-8 offset-sm-2>
+            <ion-label class="label">CVV\\CVC*</ion-label>
+            <ion-item class="input-background payment-admission-form-input input-spacing">
+              <ion-input placeholder="cvv\\cvc" [(ngModel)]="paymentGatewayModel.cvv" name="cvv\cvc" id="cvv" type="password" class="inputcolor bordercolor"
+                required clearInput></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col col-sm-8 offset-sm-2 class="button">
+            <div *ngIf="error" class="payment-admission-button">{{error}}</div>
+            <button ion-button round type="submit" class="pay-btn" (click)="pay()"> Pay</button>
+            <button ion-button color="light" round type="submit" class="cancel-btn" (click)="cancel()"> Clear</button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </form>
+  </div>
+</ion-content>

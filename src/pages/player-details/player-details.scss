@@ -1,0 +1,30 @@
+page-player-details {
+
+    .text-color{
+        color:color($colors,green-text);
+        }
+    .item-md{
+        padding-left:0px;
+        }
+    .item-md.item-block .item-inner{
+        border-bottom:none;
+        }
+    .item-md ion-avatar ion-img, .item-md ion-avatar img{
+        width:60px; height:60px;
+        }
+    .item-md p{
+        font-size:14px
+        }
+    .item-md h2{
+        font-weight:bold; font-size:2.2rem;
+        }
+    .item-md.detail p{
+        line-height:20px;
+        }
+    .item-md.detail b{
+        display:block; margin-bottom:5px; color:#333333;
+        }
+    ion-title span{
+        font-size:18px; padding-right:20px; 
+        }
+}

@@ -1,0 +1,7 @@
+{
+  "name": "GamesMadeEasy",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}

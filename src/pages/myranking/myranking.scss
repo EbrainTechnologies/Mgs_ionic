@@ -1,0 +1,28 @@
+page-myranking {
+.rankaddbtn{margin-bottom: 50px;margin-right: 20px;background-color: #003034;}
+.rounded {
+        width: 100%;
+        -moz-border-radius: 50px;
+        -webkit-border-radius: 50px;
+        border-radius: 25px;
+        border:1px solid #003034; 
+    }
+    .text-color{color:color($colors,green-text);}
+    .label-md{font-weight:bold; margin-bottom:5px; margin-top:15px; font-size:15px;}
+    ion-select{max-width:100%;}
+    .item-md{padding-left:0; }
+    .select-md .select-icon .select-icon-inner{left:auto; right:20px;}
+    .select-md .select-icon{position:inherit;}
+
+    .select_sports{margin-bottom:20px;}
+    .star_icon{color:orange; font-size:15px;}
+    .golf_list .item-md p{font-size:15px; font-weight:normal;}
+    .golf_list .item-md span{font-size:13px !important; font-weight:normal;}
+    .golf_list .list-md .item-md, .tennis_list .list-md .item-md{border-bottom:1px solid #dedede;}
+
+    .tennis_list .item-md p{font-size:15px; font-weight:normal;}
+    .tennis_list .item-md span{font-size:14px !important; font-weight:normal;}
+    .item-md ion-icon[item-end]{margin-top:20px;}
+
+
+}
